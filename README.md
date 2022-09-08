@@ -1,11 +1,12 @@
 
 <div align="center">
   
-<img width="15%" alt="LevelUptoast" src="https://user-images.githubusercontent.com/20126358/185047884-1b199d5c-163a-495d-80e6-124dfd9bf3af.png">
+<img width="602" alt="스크린샷 2022-09-08 오전 9 13 33" src="https://user-images.githubusercontent.com/81874493/189100834-4ad86ac6-c79c-498d-b961-a1553448b272.png">
 
 	
-# LevelUpToast Backend Notify	
- <img src="https://img.shields.io/badge/Spring boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white" alt="spring boot"/> <img src="https://img.shields.io/badge/IntelliJ IDEA-000000?style=flat&logo=IntelliJ IDEA&logoColor=white" alt="IntelliJ IDEA"/> <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat&logo=Apache Tomcat&logoColor=white" alt="Apache Tomcat"/> <img src="https://img.shields.io/badge/Rocky Linux-10B981?style=flat&logo=Rocky Linux&logoColor=white" alt="Rocky Linux"/> <img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white" alt="Notion"/> <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=Jenkins&logoColor=white" alt="Jenkins"/>
+# SoHee-Family Backend Notify	
+ <img src="https://img.shields.io/badge/Spring boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white" alt="spring boot"/> 
+<img src="https://img.shields.io/badge/IntelliJ IDEA-000000?style=flat&logo=IntelliJ IDEA&logoColor=white" alt="IntelliJ IDEA"/> <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat&logo=Apache Tomcat&logoColor=white" alt="Apache Tomcat"/> <img src="https://img.shields.io/badge/Rocky Linux-10B981?style=flat&logo=Rocky Linux&logoColor=white" alt="Rocky Linux"/> <img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white" alt="Notion"/> <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=Jenkins&logoColor=white" alt="Jenkins"/>
 
 	
 </div>
