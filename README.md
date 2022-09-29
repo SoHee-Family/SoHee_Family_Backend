@@ -89,7 +89,7 @@
     
     - Pull Request는 코드 리뷰를 통해 Comment를 남기고 approve 받은 이후 merge 시킨다.
         - 논의 사항이 있을 경우 카카오톡 혹은 노션을 통해 공지하고 논의 하여 해결하고 해결 한다.
-            - 문제 완료 사항은 정리하여 LevelUpToast Backend Notify 문제점 및 해결사항에 작성한다.
+            - 문제 완료 사항은 정리하여 SoHee_Family Backend Notify 문제점 및 해결사항에 작성한다.
 
 <br>
 
