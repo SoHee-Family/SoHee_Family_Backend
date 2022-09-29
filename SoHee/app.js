@@ -46,12 +46,12 @@ nunjucks.configure('views', {
 const mainPageRoute = require('./routes/mainPageRoute');
 const loginPageRoute = require('./routes/loginPageRoute');
 const logoutPageRoute = require('./routes/logoutPageRoute');
+const myPageRoute = require('./routes/myPageRoute');
 
 app.use('/',mainPageRoute);
 app.use('/login',loginPageRoute);
 app.use('/logout',logoutPageRoute);
-
-
+app.use('/mypage',myPageRoute);
 
 
 server.listen(PORT, () => console.log(PORT+`Port Server is open!!`))
