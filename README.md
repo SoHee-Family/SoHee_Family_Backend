@@ -11,12 +11,14 @@
 	
 </div>
 
-## 팀원소개
+## 😎 팀원소개
 + 손소휘 (https://github.com/Sohwi-Son)
 + 김성준 (https://github.com/kimseongjun00)
 + 김지용 (https://github.com/JiYongKim-A)
 
-## 😎 어떤 프로젝트 인가요?
+<br>
+
+## 🎬 어떤 프로젝트 인가요?
 
 이번 프로젝트는 현 대한민국의 독거노인의 건강, 사회문화 및 우울 등의 문제 그리고 소년소녀가장의 경제, 정서, 사회적응 문제를 도출하여
 이번 플랫폼을 통해 독거노인과 소년소녀 가장을 매칭 및 관리해주는 시스템을 구축하여 독거노인과 소년소녀 가장을 서로 사회적 가족 관계를 맺게 하고자 한다.
@@ -27,7 +29,7 @@
 
 <br>
 
-### 📃 Usecase Diagram
+## 📃 Usecase Diagram
 
 <img width="1336" alt="스크린샷 2022-09-30 오후 7 36 02" src="https://user-images.githubusercontent.com/81874493/193255530-7a548a1f-2f45-489e-9c0a-c87e485bc536.png">
 
