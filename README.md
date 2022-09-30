@@ -29,7 +29,8 @@
 
 ### 📃 유스케이스 다이어그램
 
-이미지 넣을 예정
+<img width="1222" alt="유스케이스 다이어그램" src="https://user-images.githubusercontent.com/81874493/193251598-52137a09-d902-47ba-8016-16965ecf956b.png">
+
 
 <br>
 
