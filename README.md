@@ -27,9 +27,10 @@
 
 <br>
 
-### 📃 유스케이스 다이어그램
+### 📃 Usecase Diagram
 
-<img width="1222" alt="유스케이스 다이어그램" src="https://user-images.githubusercontent.com/81874493/193251598-52137a09-d902-47ba-8016-16965ecf956b.png">
+<img width="1336" alt="스크린샷 2022-09-30 오후 7 36 02" src="https://user-images.githubusercontent.com/81874493/193255530-7a548a1f-2f45-489e-9c0a-c87e485bc536.png">
+
 
 
 <br>
@@ -103,7 +104,8 @@
 
 <br>
 
-이미지 넣을 예정 ~~
+<img width="1431" alt="system architecture" src="https://user-images.githubusercontent.com/81874493/193255543-3ebba9e6-eff6-46a4-9295-abbd9da9de5f.png">
+
 
 <br>
 
