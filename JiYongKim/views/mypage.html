@@ -78,18 +78,32 @@ font-size: 3rem  ;
     <div class="mypage">
       <div>
         <h2>매칭노인 :
-          <button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
+          <button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/apply' "type="button">
            매칭 신청하기
          </button>
         </h2>
       </div>
         
-        <h2>날짜 <select>
-          <option>2022년1월</option>
-          <option>2022년3월</option>
-            <option>2022년4월 </option>
-            
-        </select></h2>
+        <h2>날짜 
+          <form action="/getMyReport" method="post">
+
+          <select name="month" onchange="this.form.submit()">
+          <option value="1월">2022년 1월</option>
+          <option value="2월">2022년 2월</option>
+          <option value="3월">2022년 3월</option>
+          <option value="4월">2022년 4월</option>
+          <option value="5월">2022년 5월</option>
+          <option value="6월">2022년 6월</option>
+          <option value="7월">2022년 7월</option>
+          <option value="8월">2022년 8월</option>
+          <option value="9월">2022년 9월</option>
+          <option value="10월">2022년 10월</option>
+          <option value="11월">2022년 11월</option>
+          <option value="12월">2022년 12월</option>  
+        </select>
+      </form>
+    </h2>
+
         <table border="2" style="width: 35%; height: 35%;">
             <tr>
                 <td>날짜</td> <td>노인이름</td> <td>매칭형식</td> <td>보고서</td>
