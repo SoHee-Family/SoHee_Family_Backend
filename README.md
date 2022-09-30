@@ -134,6 +134,8 @@ ex)
 [개발 중 도움이 되었던 문서가 있을 시 이에 대한 참고 문서를 하이퍼링크 형태로 명시한다.]
 
 ex) [Spring Boot 공식 문서](https://spring.io/projects/spring-boot)
+	
+* [select box 선택시 submit 참고 문서](https://que-n-a.tistory.com/entry/select-tag-option-%EC%84%A0%ED%83%9D-%EC%8B%9C-form-submit-%EB%B3%B4%EB%82%B4%EA%B8%B0)
 
 <br>
 
