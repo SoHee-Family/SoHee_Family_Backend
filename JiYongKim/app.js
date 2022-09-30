@@ -52,12 +52,13 @@ const mainPageRoute = require('./routes/mainPageRoute');
 const loginPageRoute = require('./routes/loginPageRoute');
 const logoutPageRoute = require('./routes/logoutPageRoute');
 const signUpPageRoute = require('./routes/signUpPageRoute');
-
+const myPageRoute = require('./routes/myPageRoute');
 
 app.use('/',mainPageRoute);
 app.use('/login',loginPageRoute);
 app.use('/logout',logoutPageRoute);
 app.use('/signup',signUpPageRoute);
+app.use('/mypage', myPageRoute);
 
 
 server.listen(process.env.PORT, () => console.log(process.env.PORT+`Port Server is open!!`))

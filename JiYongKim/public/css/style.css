@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url(../img/hero-bg.jpg) top center;
+  background: url(../img/warm.jpg) top center;
   background-size: cover;
   position: relative;
 }
@@ -377,6 +377,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+
+
 /* Mobile Nav Toggle */
 #mobile-nav-toggle {
   position: fixed;
@@ -523,6 +525,34 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-bottom: 40px;
   color: #999;
 }
+
+#hero .mypage {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  }
+  
+  #hero .machingapply {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  }
 
 
 /* Team Section
