@@ -80,15 +80,15 @@ font-size: 3rem  ;
       <form action="/report" method="post">
         
         <div>
-          <h2> 이름 : <input name="name" type="text" value="{{name}}"></h2>
+          <h2> 이름 : <input name="name" type="text" value="{{name}}" readonly style="text-align: center;" ></h2>
         </div>
 
         <div>
-          <h2> 노인 이름 : <input name="olderName" type="text"></h2>
+          <h2> 노인 이름 : <input name="olderName" type="text" style="text-align: center;"></h2>
         </div>
 
         <div>
-          <h2> 지원 형식 : 소년소녀 가장 or 봉사자 </h2>
+          <h2> 지원 형식 : <input name="belong" type="text" value="{{belong}}" style="text-align: center;" readonly></h2>
         </div>
        
         <div>

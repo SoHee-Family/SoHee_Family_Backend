@@ -11,9 +11,10 @@ router.route('/')
 .get(async (req,res,next)=>{
     try{
         if(req.session.user!=undefined){
-        
+            console.log(req.session.user.belong);
             res.render('reportPage',{
-                name : req.session.user.name
+                name : req.session.user.name,
+                belong : req.session.user.belong
             });
         }else{
             res.redirect('/');

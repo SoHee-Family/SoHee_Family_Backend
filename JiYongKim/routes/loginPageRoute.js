@@ -29,7 +29,7 @@ router.route('/')
        
             if(result.success){
                
-                const user = {id : result.id, name : result.name};
+                const user = {id : result.id, name : result.name, tel : result.tel, region : result.region, belong : result.belong };
                 req.session.user = user;
                
 

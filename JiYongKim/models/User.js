@@ -16,7 +16,10 @@ async login(){
     if (user.id) { 
         
      if  (user.id === client.id && user.psword === client.pw) {
-        console.log("유저 Tel :" + user.tel);
+        // console.log("유저 Tel :" + user.tel);
+        // console.log("유저 region :" + user.region);
+        // console.log("유저 belong :" + user.belong);
+        
         return {success: true, id: user.id, name : user.name, tel : user.tel, region : user.region, belong : user.belong}; 
     }
     return {success: false, msg: "비밀번호가 틀렸습니다."};
