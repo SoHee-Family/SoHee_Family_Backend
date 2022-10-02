@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Regna Bootstrap Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Regna
+    Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+<style>
+  #select{
+font-size: 3rem  ;
+    color: white;
+    
+  }
+
+</style>
+</head>
+
+<body>
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="#hero"><img src="" alt="" title="" /></img></a>
+        <!-- Uncomment below if you prefer to use a text logo -->
+routes/mainPageRoute.js        <h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);">US</h1>
+      </div>
+
+      
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="/">홈으로</a></li>
+         
+          <li><h1 style="color: white;">{{name}}</h1></li>
+          
+          <li><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/logout' "type="button">
+            로그아웃
+        </button></li>
+      
+        </ul>     
+      </nav><!-- #nav-menu-container -->
+
+      
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Hero Section
+  ============================-->
+  <section id="hero">
+    <div class="mypage">
+      <div>
+        <h2>매칭노인 :
+          <button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/apply' "type="button">
+           매칭 신청하기
+         </button>
+        </h2>
+      </div>
+        
+        <h2>날짜 
+          <form action="/getMyReport" method="post">
+
+          <select name="month" onchange="this.form.submit()">
+          <option value="1월">2022년 1월</option>
+          <option value="2월">2022년 2월</option>
+          <option value="3월">2022년 3월</option>
+          <option value="4월">2022년 4월</option>
+          <option value="5월">2022년 5월</option>
+          <option value="6월">2022년 6월</option>
+          <option value="7월">2022년 7월</option>
+          <option value="8월">2022년 8월</option>
+          <option value="9월">2022년 9월</option>
+          <option value="10월">2022년 10월</option>
+          <option value="11월">2022년 11월</option>
+          <option value="12월">2022년 12월</option>  
+        </select>
+      </form>
+    </h2>
+
+        <table border="2" style="width: 35%; height: 35%;">
+            <tr>
+                <td>날짜</td> <td>노인이름</td> <td>매칭형식</td> <td>보고서</td>
+            </tr>
+            <tr>
+                <td>2022/01/03</td> <td>김지용</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
+                  보고서
+              </button></td>
+            </tr>
+            <tr>
+              <td>2022/03/17</td> <td>이준범</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
+                보고서
+            </button></td>
+          </tr>
+          <tr>
+            <td>2022/04/21</td> <td>윤찬영</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
+              보고서
+          </button></td>
+        </tr>
+        </table>
+
+        <div>
+          <button class="w-btn w-btn-gra1 w-btn-gra-anim" onclick = "location.href = '/report' "type="button">
+            보고서 작성하기
+        </button>
+        </div>

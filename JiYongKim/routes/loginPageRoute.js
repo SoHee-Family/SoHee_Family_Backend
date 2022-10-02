@@ -22,19 +22,16 @@ router.route('/')
 .post(async (req, res, next)=>{
     try{
         const user = new User(req.body);
+        
+        
 
         user.login().then(result=>{
-            // console.log("결과")
-            // console.log(JSON.stringify(result))
+       
             if(result.success){
-                // console.log("이름 :"+result.name)
-                // req.session.id = result.id;
-                // req.session.name = result.name;
-                const user = {id : result.id, name : result.name};
+               
+                const user = {id : result.id, name : result.name, tel : result.tel, region : result.region, belong : result.belong };
                 req.session.user = user;
-                // res.render('loggedMainPage', {
-                //     name : result.name
-                // });
+               
 
                 res.redirect('/');
             }else{

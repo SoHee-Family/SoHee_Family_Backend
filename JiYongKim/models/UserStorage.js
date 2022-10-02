@@ -11,7 +11,7 @@ class UserStorage {
     const usersKeys = Object.keys(users); // uesrs의 키 값들만 받아오기 => [id, psword, name]
     
     // console.log("idx ="+idx);
-    // console.log("usersKeys ="+usersKeys);
+    console.log("usersKeys ="+usersKeys);
     
     const userInfo = usersKeys.reduce((newUser, info) => {
       newUser[info] = users[info][idx]; //users의 key값과 idx(id)를 newUser의 key값에 넣음 (이제 이해했음)

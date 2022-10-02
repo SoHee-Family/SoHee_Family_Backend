@@ -11,12 +11,16 @@ async login(){
 
     const user = await UserStorage.getUserInfo(client.id);
 
+
+
     if (user.id) { 
-        console.log("여긴 타냐???")
-        console.log(user);
-        console.log(client);
+        
      if  (user.id === client.id && user.psword === client.pw) {
-        return {success: true, id: user.id, name : user.name}; 
+        // console.log("유저 Tel :" + user.tel);
+        // console.log("유저 region :" + user.region);
+        // console.log("유저 belong :" + user.belong);
+        
+        return {success: true, id: user.id, name : user.name, tel : user.tel, region : user.region, belong : user.belong}; 
     }
     return {success: false, msg: "비밀번호가 틀렸습니다."};
     } // id는 같으나 psword가 다를 경우 메시지 출력
