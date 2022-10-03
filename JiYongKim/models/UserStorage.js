@@ -11,7 +11,7 @@ class UserStorage {
     const usersKeys = Object.keys(users); // uesrs의 키 값들만 받아오기 => [id, psword, name]
     
     // console.log("idx ="+idx);
-    console.log("usersKeys ="+usersKeys);
+    // console.log("usersKeys ="+usersKeys);
     
     const userInfo = usersKeys.reduce((newUser, info) => {
       newUser[info] = users[info][idx]; //users의 key값과 idx(id)를 newUser의 key값에 넣음 (이제 이해했음)
@@ -58,7 +58,7 @@ static getUsers(isAll,...fields){//인자를 여러개 받아올 수 있다.
   // 회원 정보를 저장하는 메소드
   static async save(userInfo){
     const users = await this.getUsers(true);
-    console.log("유저"+users);
+    // console.log("유저"+users);
     //데이터 추가
     if(users.id.includes(userInfo.id)){
         return {success: false, msg : "이미 존재하는 id 입니다."}

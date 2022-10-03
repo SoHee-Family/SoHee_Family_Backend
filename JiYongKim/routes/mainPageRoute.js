@@ -7,11 +7,12 @@ const bodyParser = require('body-parser');
 const app = express();
 
 
+
 router.route('/')
 .get(async (req,res,next)=>{
     try{
         if(req.session.user){
-        
+            const status = 
             res.render('loggedMainPage',{
                 name : req.session.user.name
             });

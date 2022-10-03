@@ -1,4 +1,5 @@
 const UserStorage = require("./UserStorage");
+const ApplyFormStorage = require('./ApplyFormStorage');
 
 class User{
     constructor(body){
@@ -38,6 +39,18 @@ async login(){
         
     }
 
+    // 내가 작성한 신청서 확인
+    async getMyApplyForm(){
+        const client = this.body;
+        try{
+            const result = await ApplyFormStorage.getApplyFormById(client.id);
+            return result;
+
+        }catch(err){
+            const result = {success: false , msg : err}
+            return result;
+        }
+    }
 
 }
 

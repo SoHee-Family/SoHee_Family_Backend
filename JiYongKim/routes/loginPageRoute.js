@@ -23,7 +23,9 @@ router.route('/')
     try{
         const user = new User(req.body);
         
-        
+        console.log("님이 작성한 id : "+req.body.id);
+        console.log("님이 작성한 pw : "+req.body.pw);
+
 
         user.login().then(result=>{
        

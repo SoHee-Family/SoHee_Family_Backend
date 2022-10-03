@@ -50,7 +50,7 @@ font-size: 3rem  ;
       <div id="logo" class="pull-left">
         <a href="#hero"><img src="" alt="" title="" /></img></a>
         <!-- Uncomment below if you prefer to use a text logo -->
-routes/mainPageRoute.js        <h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);">US</h1>
+        <h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);">US</h1>
       </div>
 
       
@@ -77,11 +77,15 @@ routes/mainPageRoute.js        <h1 style="font-family: OKDDUNG; color: rgb(215, 
   <section id="hero">
     <div class="mypage">
       <div>
+        {% if older_name != null %}
+        <h2>매칭노인 : {{older_name}} </h2>
+        {% else%}
         <h2>매칭노인 :
           <button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/apply' "type="button">
            매칭 신청하기
          </button>
         </h2>
+        {% endif%}
       </div>
         
         <h2>날짜 
