@@ -10,6 +10,7 @@ const nunjucks = require('nunjucks'); // view engine 모듈
 const cookieParser = require('cookie-parser');
 const app = express();
 const server = http.createServer(app);
+const multer = require('multer');
 
 dotenv.config();
 
@@ -20,7 +21,7 @@ app.use(cookieParser());
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/uploads', express.static('uploads'));
 app.use(session({
     httpOnly: true,
     secure: false,

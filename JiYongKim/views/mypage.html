@@ -89,44 +89,65 @@ font-size: 3rem  ;
       </div>
         
         <h2>날짜 
-          <form action="/getMyReport" method="post">
+          <form action="/mypage" method="post">
 
           <select name="month" onchange="this.form.submit()">
-          <option value="1월">2022년 1월</option>
-          <option value="2월">2022년 2월</option>
-          <option value="3월">2022년 3월</option>
-          <option value="4월">2022년 4월</option>
-          <option value="5월">2022년 5월</option>
-          <option value="6월">2022년 6월</option>
-          <option value="7월">2022년 7월</option>
-          <option value="8월">2022년 8월</option>
-          <option value="9월">2022년 9월</option>
-          <option value="10월">2022년 10월</option>
-          <option value="11월">2022년 11월</option>
-          <option value="12월">2022년 12월</option>  
+          {% if month != null%}
+          <option selected>[2022년 {{month}}월]</option>
+          {% endif %}
+          <option value="1">2022년 1월</option>
+          <option value="2">2022년 2월</option>
+          <option value="3">2022년 3월</option>
+          <option value="4">2022년 4월</option>
+          <option value="5">2022년 5월</option>
+          <option value="6">2022년 6월</option>
+          <option value="7">2022년 7월</option>
+          <option value="8">2022년 8월</option>
+          <option value="9">2022년 9월</option>
+          <option value="10">2022년 10월</option>
+          <option value="11">2022년 11월</option>
+          <option value="12">2022년 12월</option>  
         </select>
       </form>
     </h2>
 
-        <table border="2" style="width: 35%; height: 35%;">
+        <table border="2" style="width:580px; height:500px; display: block; overflow:auto; ">
             <tr>
-                <td>날짜</td> <td>노인이름</td> <td>매칭형식</td> <td>보고서</td>
+                <td style="width: 100px; table-layout:fixed">날짜</td> <td style="width: 100px; table-layout:fixed">노인이름</td> <td style="width: 200px; table-layout:fixed">매칭형식</td> <td style="width: 180px; table-layout:fixed">보고서</td>
             </tr>
+
+            <!-- <td>-</td> <td>-</td> <td>-</td> <td>-</td> -->
+            
+
+            {% for report in reports %}     
+            {% if report != null %}
             <tr>
+              <td>{{report.date}}</td> <td>{{report.name}}</td> <td>{{report.belong}}</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/report/'+`{{report.uuid}}` "type="button">
+                보고서
+            </button></td>
+          </tr>
+            {% endif%}
+            {% endfor %}
+
+          
+            <!-- <tr>
                 <td>2022/01/03</td> <td>김지용</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
                   보고서
               </button></td>
             </tr>
+
             <tr>
               <td>2022/03/17</td> <td>이준범</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
                 보고서
             </button></td>
           </tr>
+          
           <tr>
             <td>2022/04/21</td> <td>윤찬영</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
               보고서
           </button></td>
-        </tr>
+        </tr> -->
+
         </table>
 
         <div>
