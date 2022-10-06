@@ -155,28 +155,30 @@ router.route('/update/:uuid')
     }
     
     const report = new Report(reportForm);
+    const uuid = req.params.uuid;
     try{
-        const uuid = req.params.uuid;
-        ReportStorage.delete(uuid, req.session.user.id).then(result=>{
-            if(result.success){
-                report.submit(req.files.activity_img[0].filename,req.files.design_img[0].filename).then(result =>{
-                    if(result.success){
-                        res.redirect(`/report/${result.uuid}`);
+        report.submit(req.files.activity_img[0].filename,req.files.design_img[0].filename).then(saveResult =>{
+            if(saveResult.success){
+                
+                ReportStorage.delete(uuid, req.session.user.id).then(deleteResult=>{
+                    if(deleteResult.success){
+                        res.redirect(`/report/${saveResult.uuid}`);
                     }else{
-                        console.log(result.msg);
-                        // res.redirect('/mypage')
+                        res.send("<script>alert('모든 항목을 작성해 주세요.');location.href='/report/update/"+uuid+"';</script>");
+                        next(result.msg);
                     }
-                })
+                }) 
+
+                
             }else{
-                next(result.msg);
+                res.send("<script>alert('모든 항목을 작성해 주세요.');location.href='/report/update/"+uuid+"';</script>");
+                // console.log(result.msg);
+                // res.redirect('/mypage')
             }
-        }) 
-
-
-        
+        })
     }catch(err){
         // console.log(err);
-        res.send("<script>alert('모든 항목을 작성해 주세요.');location.href='/report';</script>");
+        res.send("<script>alert('모든 항목을 작성해 주세요.');location.href='/report/update/"+uuid+"';</script>");
     }
     
 });
