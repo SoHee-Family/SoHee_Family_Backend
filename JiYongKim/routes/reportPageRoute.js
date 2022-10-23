@@ -74,6 +74,11 @@ router.route('/')
     
     const report = new Report(reportForm);
     try{
+        
+        console.log("acivity_img :"+JSON.stringify(req.files.activity_img));
+        console.log("acivity_img[0] :"+JSON.stringify(req.files.activity_img[0]));
+        console.log("acivity_img[0].filename :"+JSON.stringify(req.files.activity_img[0].filename));
+
         report.submit(req.files.activity_img[0].filename,req.files.design_img[0].filename).then(result =>{
             if(result.success){
                 res.redirect('/mypage');
