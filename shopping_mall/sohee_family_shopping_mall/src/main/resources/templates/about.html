@@ -1,0 +1,355 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>US</title>
+
+    <!-- CSS FILES -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap-icons.css}">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/tooplate-crispy-kitchen.css}">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!--
+
+    Tooplate 2129 Crispy Kitchen
+
+    https://www.tooplate.com/view/2129-crispy-kitchen
+
+    -->
+    </head>
+    
+    <body>
+        
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="usFont" th:href="@{/}" href="index.html">
+                    US
+                </a>
+
+                <div class="d-lg-none">
+                    <button type="button" class="custom-btn btn btn-danger" href="/login" data-bs-target="#BookingModal">로그인</button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/about}" href="about.html">회사소개</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/menu}" href="menu.html">상품</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/support}" href="support.html">후원</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/news}" href="news.html">봉사 및 기부 활동</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <h5 th:if ="${sessionForm!=null}" th:text="|${sessionForm.name} 님|" style="position:relative; top: 5px">손소휘 님</h5>&nbsp&nbsp&nbsp&nbsp
+
+                <br th:if ="${sessionForm!=null}">
+
+                <div class="d-none d-lg-block" th:if ="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-dark" th:onclick="|location.href='@{/myPage}'|" data-bs-target="#BookingModal">마이페이지</button>
+                </div>
+                &nbsp&nbsp&nbsp&nbsp
+                <div class="d-none d-lg-block" th:if ="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-danger" th:onclick="|location.href='@{/logout}'|" data-bs-target="#BookingModal">로그아웃</button>
+                </div>
+
+
+                <div class="d-none d-lg-block" th:unless="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-danger" th:onclick="|location.href='@{/login}'|" data-bs-target="#BookingModal">Login</button>
+                </div>
+
+            </div>
+        </nav>
+
+        <main>
+
+            <header class="site-header site-about-header">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <h1 class="text-white">US</h1>
+
+                            <strong class="text-white">새로운 가족과의 추억</strong>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="overlay"></div>
+            </header>
+
+            <section class="about section-padding bg-white">
+                <div class="container" style="align-items: center;">
+                    
+
+                        
+
+                        <div  style="text-align: center;">
+
+                            <h4 class="mb-3">About US</h4>
+                        
+                        	<h7><strong>소히 주식회사는</strong> 사회적 취약계층을 위해 독거 노인과 소년 소녀 가장과의 새로운 사회적 가족 을 형성하고</h7>
+                        
+                            <p> 소년 소녀 가장의 건강한 성장 환경 조성과 독거노인의 사회적 돌봄 대책 마련에 노력하고 있습니다</p>
+
+                        </div>
+
+                    
+                </div>
+            </section>
+
+            <section class="about section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2 class="mb-5">People</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="team-thumb">
+                                <img src="images/team/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg" class="img-fluid team-image" alt="">
+                                
+                                <div class="team-info">
+                                    <h4 class="mt-3 mb-0">손소휘</h4>
+
+                                    <p>CEO &amp; Backend_developer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                        <div class="col-lg-4 col-12">
+                            <div class="team-thumb">
+                                <img src="images/team/rc-cf-FMh5o5m5N9E-unsplash.jpg" class="img-fluid team-image" alt="">
+                                
+                                <h4 class="mt-3 mb-0">김성준</h4>
+
+                                <p>Backend_developer</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12 my-lg-0 my-4">
+                            <div class="team-thumb">
+                                <img src="images/team/nicolas-horn-MTZTGvDsHFY-unsplash.jpg" class="img-fluid team-image" alt="">
+
+                                <h4 class="mt-3 mb-0">이준범</h4>
+
+                                <p>Frontend_developer</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="team-thumb">
+                                <img src="images/team/rc-cf-FMh5o5m5N9E-unsplash.jpg" class="img-fluid team-image" alt="">
+                                
+                                <h4 class="mt-3 mb-0">윤찬영</h4>
+
+                                <p>Frontend_developer</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="team-thumb">
+                                <img src="images/team/rc-cf-FMh5o5m5N9E-unsplash.jpg" class="img-fluid team-image" alt="">
+                                
+                                <h4 class="mt-3 mb-0">김지용</h4>
+
+                                <p>Backend_developer &amp; Frontend_developer</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            
+            <section class="newsletter section-padding bg-white">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <img src="images/charles-deluvio-FdDkfYFHqe4-unsplash.jpg" class="img-fluid newsletter-image" alt="">
+                        </div>
+
+                        <div class="col-lg-6 col-12 d-flex align-items-center mt-5 mt-lg-0 mx-auto">
+                            <div class="subscribe-form-wrap">
+                                <h4 class="mb-0">How to contact &nbsp&nbsp<strong class="usFont">US</strong> </h4> 
+                                <p>대표메일 : 손소휘@gmail.com</p>
+                                <p>대표전화 : 010 - XXXX - XXXX</p>
+                                <p>주소 : 서울특별시 노원구 동일로 214길 32 갈멜관</p>
+                                <form class="custom-form subscribe-form mt-4" role="form">
+                                    
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <div class="col-12" style="text-align: center; align-content: center;">
+
+                <h4 class="mt-5 mb-4">서울특별시 노원구 동일로 214길 32 갈멜관</h4>
+
+                <div class="google-map pt-3" style="width: 70%; margin: 0px auto;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3159.0217487162895!2d127.06201325092073!3d37.648692727077204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cb969082cbddd%3A0x8620207637da6f8f!2z7ISc7Jq47Yq567OE7IucIOuFuOybkOq1rCDrj5nsnbzroZwyMTTquLggMzI!5e0!3m2!1sko!2skr!4v1665692459146!5m2!1sko!2skr"  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer section-padding">
+            
+            <div class="container">
+                
+                <div class="row">
+
+                    <div class="col-12">
+                        <h4 class="usFont">US</h4>
+                    </div>
+
+                    <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Location</h6>
+
+                        <p>서울특별시 노원구 동일로 214길 32 갈멜관</p>
+
+                        <a href="https://goo.gl/maps/ZEYnh4QvBhR88TPx9" class="custom-btn btn btn-dark mt-2">Directions</a>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Company</h6>
+
+                        <p class="mb-2">상호명 : SoHee's Family (주) </p>
+
+                        <p>대표이사 : 손소휘</p>
+                        <p>대표전화 : 010 - XXXX - XXXX</p>
+                        <p>사업자 등록번호 : xxx-xx-xxxxx</p>
+                    </div>
+
+                    
+
+
+                    <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Social</h6>
+
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="https://twitter.com/search?q=tooplate.com&src=typed_query&f=live" target="_blank"
+                            	 class="social-icon-link bi-twitter"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                        </ul>
+                    
+                        <p class="copyright-text tooplate-mt60">Copyright © 2022 Crispy Kitchen Co., Ltd.
+                        <br>Design: <a rel="nofollow" href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                        
+                    </div>
+
+                </div><!-- row ending -->
+                
+             </div><!-- container ending -->
+             
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade" id="BookingModal" tabindex="-1" aria-labelledby="BookingModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="mb-0">Reserve a table</h3>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body d-flex flex-column justify-content-center">
+                        <div class="booking">
+                            
+                            <form class="booking-form row" role="form" action="#" method="post">
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <label for="name" class="form-label">ID</label>
+
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="ID를 작성해주세요" required>
+                                </div>
+
+                                &nbsp;
+
+                                &nbsp;
+                                
+
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <label for="password" class="form-label">Password</label>
+
+                                    <input type="password" name="password" id="password"  class="form-control" placeholder="PW를 작성해 주세요"  required>
+                                </div>
+
+                                &nbsp;
+
+                                &nbsp;
+
+
+                                <div class="d-none d-lg-block">
+                                    <button type="button" class="custom-btn btn btn-danger" th:onclick="|location.href='@{/login}'|" data-bs-target="#BookingModal">Login</button>
+                                </div>
+                                
+                                
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer"></div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+        <script th:src="@{/js/bootstrap.bundle.min.js}" src="js/bootstrap.bundle.min.js"></script>
+        <script th:src="@{/js/custom.js}" src="js/custom.js"></script>
+
+    </body>
+</html>

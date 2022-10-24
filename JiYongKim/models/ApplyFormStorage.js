@@ -38,7 +38,7 @@ class ApplyFormStorage{
         applyForms.tel.push(applyForm.tel);
         applyForms.address.push(applyForm.address);
         applyForms.motive.push(applyForm.motive);
-        applyForms.status.push(false);
+        applyForms.status.push(null);
         fs.writeFile("./databases/applyForm.json",JSON.stringify(applyForms));
         return{success:true};
 

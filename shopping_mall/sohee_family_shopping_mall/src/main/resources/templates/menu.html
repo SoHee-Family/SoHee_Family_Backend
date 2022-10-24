@@ -1,0 +1,496 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>US</title>
+
+    <!-- CSS FILES -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap-icons.css}">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/tooplate-crispy-kitchen.css}">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+<!--
+
+Tooplate 2129 Crispy Kitchen
+
+https://www.tooplate.com/view/2129-crispy-kitchen
+
+-->
+    </head>
+    
+    <body>
+        
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="usFont" th:href="@{/}" href="index.html">
+                    US
+                </a>
+
+                <div class="d-lg-none">
+                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">로그인</button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/about}" href="about.html">회사소개</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/menu}" href="menu.html">상품</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/support}" href="support.html">후원</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/news}" href="news.html">봉사 및 기부 활동</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <h5 th:if ="${sessionForm!=null}" th:text="|${sessionForm.name} 님|" style="position:relative; top: 5px">손소휘 님</h5>&nbsp&nbsp&nbsp&nbsp
+
+                <br th:if ="${sessionForm!=null}">
+
+                <div class="d-none d-lg-block" th:if ="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-dark" th:onclick="|location.href='@{/myPage}'|" data-bs-target="#BookingModal">마이페이지</button>
+                </div>
+                &nbsp&nbsp&nbsp&nbsp
+                <div class="d-none d-lg-block" th:if ="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-danger" th:onclick="|location.href='@{/logout}'|" data-bs-target="#BookingModal">로그아웃</button>
+                </div>
+
+
+                <div class="d-none d-lg-block" th:unless="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-danger" th:onclick="|location.href='@{/login}'|" data-bs-target="#BookingModal">Login</button>
+                </div>
+
+
+            </div>
+        </nav>
+
+        <main>
+
+            <header class="site-header site-menu-header">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <h1 class="text-white">상품 소개</h1>
+
+                            <strong class="text-white">원하시는 디자인에 맞추어 선택하신 제품을 제작하여 보내드립니다.</strong>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="overlay"></div>
+            </header>
+
+            
+            <section class="menu section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2 class="mb-lg-5 mb-4">Goods</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/tumbler.PNG" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">텀블러</h4>
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">+ 3,000<small> &#8361;</small></span>
+                                    
+
+                               
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">4.4/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">102 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/tshirts.PNG" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">티셔츠</h4>
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">+ 2,000<small> &#8361;</small></span>
+                                  
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">56 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/keyring.PNG" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">키링</h4>
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">+ 1,500<small> &#8361;</small></span>
+                                  
+
+                                 
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="menu section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2 class="mb-lg-5 mb-4">Design</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/design/testing1.jpg" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">아보카도 일러스트</h4>
+
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">4.4/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">102 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/design/testing2.jpg" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">북극곰 일러스트</h4>
+
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">56 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/design/testing3.jpg" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">큐티곰 일러스트</h4>
+
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/design/testing4.jpg" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">뼝아리 일러스트</h4>
+
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/design/testing5.jpg" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">토끼츄 일러스트</h4>
+
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <img src="images/design/testing6.png" class="img-fluid menu-image" alt="">
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">엄마 일러스트</h4>
+
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer section-padding">
+            
+            <div class="container">
+                
+                <div class="row">
+
+                    <div class="col-12">
+                        <h4 class="usFont">US</h4>
+                    </div>
+
+                    <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Location</h6>
+
+                        <p>서울특별시 노원구 동일로 214길 32 갈멜관</p>
+
+                        <a href="https://goo.gl/maps/ZEYnh4QvBhR88TPx9" class="custom-btn btn btn-dark mt-2">Directions</a>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Company</h6>
+
+                        <p class="mb-2">상호명 : SoHee's Family (주) </p>
+
+                        <p>대표이사 : 손소휘</p>
+                        <p>대표전화 : 010 - XXXX - XXXX</p>
+                        <p>사업자 등록번호 : xxx-xx-xxxxx</p>
+                    </div>
+
+                    
+
+
+                    <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Social</h6>
+
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="https://twitter.com/search?q=tooplate.com&src=typed_query&f=live" target="_blank"
+                            	 class="social-icon-link bi-twitter"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                        </ul>
+                    
+                        <p class="copyright-text tooplate-mt60">Copyright © 2022 Crispy Kitchen Co., Ltd.
+                        <br>Design: <a rel="nofollow" href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                        
+                    </div>
+
+                </div><!-- row ending -->
+                
+             </div><!-- container ending -->
+             
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade" id="BookingModal" tabindex="-1" aria-labelledby="BookingModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="mb-0">Reserve a table</h3>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body d-flex flex-column justify-content-center">
+                        <div class="booking">
+                            
+                            <form class="booking-form row" role="form" action="#" method="post">
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <label for="name" class="form-label">ID</label>
+
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="ID를 작성해주세요" required>
+                                </div>
+
+                                &nbsp;
+
+                                &nbsp;
+                                
+
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <label for="password" class="form-label">Password</label>
+
+                                    <input type="password" name="password" id="password"  class="form-control" placeholder="PW를 작성해 주세요"  required>
+                                </div>
+
+                                &nbsp;
+
+                                &nbsp;
+                                
+
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <button type="submit" class="form-control" style="background-color: rgb(237, 203, 84);">Login</button>
+                                </div>
+                                
+                                
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer"></div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+        <script th:src="@{/js/bootstrap.bundle.min.js}" src="js/bootstrap.bundle.min.js"></script>
+        <script th:src="@{/js/custom.js}" src="js/custom.js"></script>
+
+    </body>
+</html>
