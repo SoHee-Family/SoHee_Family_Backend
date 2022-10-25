@@ -1,8 +1,8 @@
-package com.example.sohee_family.controller.Login;
+package com.example.sohee_family.controller.login;
 
 import com.example.sohee_family.config.sessionConst.SessionConst;
 import com.example.sohee_family.config.sessionForm.SessionForm;
-import com.example.sohee_family.controller.Login.form.LoginForm;
+import com.example.sohee_family.controller.login.form.LoginForm;
 import com.example.sohee_family.domain.dto.Member;
 import com.example.sohee_family.service.login.LoginService;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,7 @@ public class LoginController {
         }
         //Login Success
         HttpSession session = request.getSession();
-        SessionForm sessionForm = new SessionForm(member.getId(), member.getName());
+        SessionForm sessionForm = new SessionForm(member.getId(), member.getName(), member.getMemberManageSeq());
         session.setAttribute(SessionConst.LOGIN_SESSION_KEY, sessionForm);
         return "redirect:"+redirectURL;
     }

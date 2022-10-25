@@ -1,4 +1,4 @@
-package com.example.sohee_family.controller.Login.form;
+package com.example.sohee_family.controller.login.form;
 
 import lombok.Data;
 

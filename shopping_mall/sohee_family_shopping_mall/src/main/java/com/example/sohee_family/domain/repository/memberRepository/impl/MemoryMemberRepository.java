@@ -55,7 +55,7 @@ public class MemoryMemberRepository implements MemberRepository {
 
     @Override
     public void removeByManageSeq(Long manageSeq) {
-        if(!findMemberByManageSeq(manageSeq).isEmpty()){
+        if(findMemberByManageSeq(manageSeq).isPresent()){
             store.remove(manageSeq);
         }
     }

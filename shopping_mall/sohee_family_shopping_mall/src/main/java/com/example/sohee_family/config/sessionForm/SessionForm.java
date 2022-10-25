@@ -9,4 +9,5 @@ import lombok.Data;
 public class SessionForm {
     private String id;
     private String name;
+    private Long memberManageSeq;
 }
