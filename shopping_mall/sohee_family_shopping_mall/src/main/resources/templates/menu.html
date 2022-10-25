@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>US</title>
+    <title>U_S_mall</title>
 
     <!-- CSS FILES -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"
@@ -48,32 +48,33 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                 </button>
 
                 <a class="usFont" th:href="@{/}" href="index.html">
-                    US
+                    U S mall
                 </a>
 
                 <div class="d-lg-none">
-                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">로그인</button>
+                    <button type="button" class="custom-btn btn btn-danger" href="/login" data-bs-target="#BookingModal">로그인</button>
                 </div>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
+                <div class="collapse navbar-collapse" id="navbarNav" style="width: 50%">
+                    <ul class="navbar-nav mx-auto"  style="width: 60%; text-align: center">
+
+
+                        <li class="nav-item" style="width: 24%">
                             <a class="nav-link" th:href="@{/about}" href="about.html">회사소개</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" style="width: 22%">
                             <a class="nav-link" th:href="@{/menu}" href="menu.html">상품</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" style="width: 22%">
                             <a class="nav-link" th:href="@{/support}" href="support.html">후원</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" style="width: 32%">
                             <a class="nav-link" th:href="@{/news}" href="news.html">봉사 및 기부 활동</a>
                         </li>
                     </ul>
-
                 </div>
                 <h5 th:if ="${sessionForm!=null}" th:text="|${sessionForm.name} 님|" style="position:relative; top: 5px">손소휘 님</h5>&nbsp&nbsp&nbsp&nbsp
 
@@ -217,161 +218,163 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                             <h2 class="mb-lg-5 mb-4">Design</h2>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12" th:each ="design : ${designList}">
                             <div class="menu-thumb">
-                                <img src="images/design/testing1.jpg" class="img-fluid menu-image" alt="">
+                                <div class="menu-image-wrap">
+                                    <a href="d" style="text-decoration: none;" th:href="@{/design/{designManageSeq}(designManageSeq=${design.designManageSeq})}"><img th:src="|/images/design/${design.designImageURL}|" src="images/design/testing1.jpg" class="img-fluid menu-image" alt=""></a>
+
+                                    <a href="d" style="text-decoration: none;" th:href="@{/design/{designManageSeq}(designManageSeq=${design.designManageSeq})}"><span class="menu-tag bg-warning">Illustration</span></a>
+                                </div>
 
                                 <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">아보카도 일러스트</h4>
+                                    <a href="d" style="text-decoration: none;" th:href="@{/design/{designManageSeq}(designManageSeq=${design.designManageSeq})}"><h4 class="mb-0" th:text="${design.designName}">아보카도 일러스트</h4></a>
 
-                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;" th:text="|${design.designPrice} ₩|">20,000<small> &#8361;</small></span>
 
                                     <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">4.4/5</h6>
+                                        <h6 class="reviews-text mb-0 me-3" th:text="|${design.star} / 5|">4.3/5</h6>
+
 
                                         <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon" th:each="num : ${#numbers.sequence(1,#numbers.formatInteger(design.star,1))}"></i>
+                                            <!--                                                <i class="bi-star reviews-icon" th:each="num : 5-${#numbers.sequence(1,#numbers.formatInteger(design.star,1))}"></i>-->
                                         </div>
 
-                                        <p class="reviews-text mb-0 ms-4">102 Reviews</p>
+                                        <p class="reviews-text mb-0 ms-4" th:text="|${design.reviewCount} reviews|"> 5 Reviews</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <img src="images/design/testing2.jpg" class="img-fluid menu-image" alt="">
+<!--                        <div class="col-lg-4 col-md-6 col-12">-->
+<!--                            <div class="menu-thumb">-->
+<!--                                <img src="images/design/testing2.jpg" class="img-fluid menu-image" alt="">-->
 
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">북극곰 일러스트</h4>
+<!--                                <div class="menu-info d-flex flex-wrap align-items-center">-->
+<!--                                    <h4 class="mb-0">북극곰 일러스트</h4>-->
 
-                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+<!--                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>-->
 
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+<!--                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">-->
+<!--                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>-->
 
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
+<!--                                        <div class="reviews-stars">-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                        </div>-->
 
-                                        <p class="reviews-text mb-0 ms-4">56 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                                        <p class="reviews-text mb-0 ms-4">56 Reviews</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <img src="images/design/testing3.jpg" class="img-fluid menu-image" alt="">
+<!--                        <div class="col-lg-4 col-md-6 col-12">-->
+<!--                            <div class="menu-thumb">-->
+<!--                                <img src="images/design/testing3.jpg" class="img-fluid menu-image" alt="">-->
 
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">큐티곰 일러스트</h4>
+<!--                                <div class="menu-info d-flex flex-wrap align-items-center">-->
+<!--                                    <h4 class="mb-0">큐티곰 일러스트</h4>-->
 
-                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+<!--                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>-->
 
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+<!--                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">-->
+<!--                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>-->
 
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
+<!--                                        <div class="reviews-stars">-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                        </div>-->
 
-                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        -->
+<!--                        <div class="col-lg-4 col-md-6 col-12">-->
+<!--                            <div class="menu-thumb">-->
+<!--                                <img src="images/design/testing4.jpg" class="img-fluid menu-image" alt="">-->
+
+<!--                                <div class="menu-info d-flex flex-wrap align-items-center">-->
+<!--                                    <h4 class="mb-0">뼝아리 일러스트</h4>-->
+
+<!--                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>-->
+
+<!--                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">-->
+<!--                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>-->
+
+<!--                                        <div class="reviews-stars">-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                        </div>-->
+
+<!--                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="col-lg-4 col-md-6 col-12">-->
+<!--                            <div class="menu-thumb">-->
+<!--                                <img src="images/design/testing5.jpg" class="img-fluid menu-image" alt="">-->
+
+<!--                                <div class="menu-info d-flex flex-wrap align-items-center">-->
+<!--                                    <h4 class="mb-0">토끼츄 일러스트</h4>-->
+
+<!--                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>-->
+
+<!--                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">-->
+<!--                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>-->
+
+<!--                                        <div class="reviews-stars">-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                        </div>-->
+
+<!--                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <img src="images/design/testing4.jpg" class="img-fluid menu-image" alt="">
+<!--                        <div class="col-lg-4 col-md-6 col-12">-->
+<!--                            <div class="menu-thumb">-->
+<!--                                <img src="images/design/testing6.png" class="img-fluid menu-image" alt="">-->
 
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">뼝아리 일러스트</h4>
+<!--                                <div class="menu-info d-flex flex-wrap align-items-center">-->
+<!--                                    <h4 class="mb-0">엄마 일러스트</h4>-->
 
-                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+<!--                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>-->
 
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
+<!--                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">-->
+<!--                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>-->
 
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
+<!--                                        <div class="reviews-stars">-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                        </div>-->
 
-                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <img src="images/design/testing5.jpg" class="img-fluid menu-image" alt="">
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">토끼츄 일러스트</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
-
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-
-                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="menu-thumb">
-                                <img src="images/design/testing6.png" class="img-fluid menu-image" alt="">
-
-                                <div class="menu-info d-flex flex-wrap align-items-center">
-                                    <h4 class="mb-0">엄마 일러스트</h4>
-
-                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
-
-                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-
-                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                                        <p class="reviews-text mb-0 ms-4">76 Reviews</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
                     </div>
                 </div>

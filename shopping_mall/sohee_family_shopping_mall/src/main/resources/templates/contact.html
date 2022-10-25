@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>US</title>
+        <title>U_S_mall</title>
 
         <!-- CSS FILES -->        
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,35 +36,33 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
-                <a class="navbar-brand" href="index.html">
-                    Crispy Kitchen
+
+                <a class="usFont" th:href="@{/}" href="index.html">
+                    U S mall
                 </a>
 
                 <div class="d-lg-none">
-                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Reservation</button>
+                    <button type="button" class="custom-btn btn btn-danger" href="/login" data-bs-target="#BookingModal">로그인</button>
                 </div>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                <div class="collapse navbar-collapse" id="navbarNav" style="width: 50%">
+                    <ul class="navbar-nav mx-auto"  style="width: 60%; text-align: center">
+
+
+                        <li class="nav-item" style="width: 24%">
+                            <a class="nav-link" th:href="@{/about}" href="about.html">회사소개</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">Story</a>
+                        <li class="nav-item" style="width: 22%">
+                            <a class="nav-link" th:href="@{/menu}" href="menu.html">상품</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="menu.html">Menu</a>
+                        <li class="nav-item" style="width: 22%">
+                            <a class="nav-link" th:href="@{/support}" href="support.html">후원</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="news.html">Our Updates</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="contact.html">Contact</a>
+                        <li class="nav-item" style="width: 32%">
+                            <a class="nav-link" th:href="@{/news}" href="news.html">봉사 및 기부 활동</a>
                         </li>
                     </ul>
                 </div>

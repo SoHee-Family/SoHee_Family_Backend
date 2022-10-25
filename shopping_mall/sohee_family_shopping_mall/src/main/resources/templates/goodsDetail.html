@@ -1,25 +1,35 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>US</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!-- CSS FILES -->  
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">                      
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>U_S_mall</title>
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <!-- CSS FILES -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}">
 
-        <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap-icons.css}">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/tooplate-crispy-kitchen.css}">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
         <style>
             .selectBox {
             position: relative;
@@ -83,41 +93,52 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
-                <a class="navbar-brand" href="index.html">
-                    Crispy Kitchen
+
+                <a class="usFont" th:href="@{/}" href="index.html">
+                    U S mall
                 </a>
 
                 <div class="d-lg-none">
-                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Reservation</button>
+                    <button type="button" class="custom-btn btn btn-danger" href="/login" data-bs-target="#BookingModal">로그인</button>
                 </div>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                <div class="collapse navbar-collapse" id="navbarNav" style="width: 50%">
+                    <ul class="navbar-nav mx-auto"  style="width: 60%; text-align: center">
+
+
+                        <li class="nav-item" style="width: 24%">
+                            <a class="nav-link" th:href="@{/about}" href="about.html">회사소개</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">Story</a>
+                        <li class="nav-item" style="width: 22%">
+                            <a class="nav-link" th:href="@{/menu}" href="menu.html">상품</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="menu.html">Menu</a>
+                        <li class="nav-item" style="width: 22%">
+                            <a class="nav-link" th:href="@{/support}" href="support.html">후원</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="news.html">Our Updates</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                        <li class="nav-item" style="width: 32%">
+                            <a class="nav-link" th:href="@{/news}" href="news.html">봉사 및 기부 활동</a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="d-none d-lg-block">
-                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Reservation</button>
+                <h5 th:if ="${sessionForm!=null}" th:text="|${sessionForm.name} 님|" style="position:relative; top: 5px">손소휘 님</h5>&nbsp&nbsp&nbsp&nbsp
+
+                <br th:if ="${sessionForm!=null}">
+
+                <div class="d-none d-lg-block" th:if ="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-dark" th:onclick="|location.href='@{/myPage}'|" data-bs-target="#BookingModal">마이페이지</button>
+                </div>
+                &nbsp&nbsp&nbsp&nbsp
+                <div class="d-none d-lg-block" th:if ="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-danger" th:onclick="|location.href='@{/logout}'|" data-bs-target="#BookingModal">로그아웃</button>
+                </div>
+
+
+                <div class="d-none d-lg-block" th:unless="${sessionForm!=null}">
+                    <button type="button" class="custom-btn btn btn-danger" th:onclick="|location.href='@{/login}'|" data-bs-target="#BookingModal">Login</button>
                 </div>
 
             </div>
@@ -132,34 +153,31 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                         <div class="col-12" >
                             <br>
                             <br>
-                            <h2>아보카도 일러스트</h2>
+                            <h2 th:text="${design.designName}">아보카도 일러스트</h2>
                             <br>
                         </div>
                         <div>
                             <div class="menu-thumb" style="margin: auto;">
                                 <div class="menu-image-wrap">
-                                    <img src="images/design/testing1.jpg" class="img-fluid menu-image" style="width: 50%; height: 50%; position: relative; left: 30%; " alt="">
+                                    <img th:src="|/images/design/${design.designImageURL}|" src="images/design/testing1.jpg" class="img-fluid menu-image" style="width: 50%; height: 50%; position: relative; left: 30%; " alt="">
 
                                     
                                 </div>
 
                                 <div class="menu-info d-flex flex-wrap align-items-center" style="position: relative; left: 29%;" >
-                                    <h4 class="mb-0">아보카도 일러스트</h4>
+                                    <h4 class="mb-0" th:text="${design.designName}">아보카도 일러스트</h4>
 
-                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;">20,000<small> &#8361;</small></span>
+                                    <span class="price-tag bg-white shadow-lg ms-4" style="width: 100px;" th:text="|${design.designPrice} ₩|">20,000<small> &#8361;</small></span>
 
                                     <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                        <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
+                                        <h6 class="reviews-text mb-0 me-3" th:text="|${design.star} / 5|">4.3/5</h6>
 
                                         <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon" th:each="num : ${#numbers.sequence(1,#numbers.formatInteger(design.star,1))}"></i>
+                                            <!--                                                <i class="bi-star reviews-icon" th:each="num : 5-${#numbers.sequence(1,#numbers.formatInteger(design.star,1))}"></i>-->
                                         </div>
 
-                                        <p class="reviews-text mb-0 ms-4">102 Reviews</p>
+                                        <p class="reviews-text mb-0 ms-4" th:text="|${design.reviewCount} reviews|"> 5 Reviews</p>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +198,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                 
                                 <h4 class="mb-3">디자인 설명</h4>
 
-                                <p>많은 사랑 부탁드립니다.</p>
+                                <p th:text="${design.explain}">많은 사랑 부탁드립니다.</p>
                                 <br>
                                 <br>
                                 
@@ -190,7 +208,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6 col-12">
                                                 <div class="menu-thumb">
-                                                    <img src="images/tumbler.PNG" class="img-fluid menu-image" alt="">
+                                                    <img th:src="|/images/tumbler.PNG|" src="images/tumbler.PNG" class="img-fluid menu-image" alt="">
                     
                                                     <div class="menu-info d-flex flex-wrap align-items-center">
                                                         <h4 class="mb-0">텀블러</h4>
@@ -218,7 +236,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                     
                                             <div class="col-lg-4 col-md-6 col-12">
                                                 <div class="menu-thumb">
-                                                    <img src="images/tshirts.PNG" class="img-fluid menu-image" alt="">
+                                                    <img th:src="|/images/tshirts.PNG|" src="images/tshirts.PNG" class="img-fluid menu-image" alt="">
                     
                                                     <div class="menu-info d-flex flex-wrap align-items-center">
                                                         <h4 class="mb-0">티셔츠</h4>
@@ -244,7 +262,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                     
                                             <div class="col-lg-4 col-md-6 col-12">
                                                 <div class="menu-thumb">
-                                                    <img src="images/keyring.PNG" class="img-fluid menu-image" alt="">
+                                                    <img th:src="|/images/keyring.PNG|" src="images/keyring.PNG" class="img-fluid menu-image" alt="">
                     
                                                     <div class="menu-info d-flex flex-wrap align-items-center">
                                                         <h4 class="mb-0">키링</h4>
@@ -272,33 +290,44 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                     
                                         </div>
                                     </div>
-                                
 
 
-                                
-                            
+
+                            <br>
+                            <br>
                             
                             <div>
                                 <h4 class="mb-3">상품 결제</h4>
-                                <form action="/mypage" method="post">
-                                    <h5>디자인 : 아보카도 일러스트 </h5>
-                                    <br>
-                                    <select id="selectbox" class="selectBox" name="month" onchange="chageLangSelect(20000)" style="width: 290px;">
-                                    <option selected>상품 선택</option>
-                                    <option value="tumbler">텀블러 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +3,000₩</option>
-                                    <option value="tshirts">티셔츠 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +2,000₩</option>
-                                    <option value="keyring">키 링 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +1,500₩</option> 
-                                  </select>
-                                </form>
-                                <br>
-                                <div>
-                                    <h5  style="float: left;">결제 금액 : &nbsp;&nbsp; </h5>
-                                    <h5 style="float: left; width: 15%;"><strong id ="totalPrice"> 0</strong> <strong>₩</strong></h5>
-                                    <button type="button" class="custom-btn btn btn-danger" style="float: left; position: relative; top: -5px;">결제</button>
-                                </div>
+                                <form action="/payment" method="post" th:action="@{/payment/{designManageSeq}(designManageSeq=${design.designManageSeq})}" th:method="post">
+                                        <h5>디자인 : 아보카도 일러스트 </h5>
+                                        <br>
+                                        <h5 style="float: left; width: 10%;"> 상품 선택 : </h5>
+                                        <select th:id ="selectbox" id="selectbox" class="selectBox" name="selectbox"  th:onchange="|changeLangSelect(${design.designPrice})|" style="width: 200px; float: left; width: 20%; position: relative; top: 5px;">
+                                        <option disabled selected>상품 선택</option>
+                                        <option th:value="텀블러" value="tumbler">텀블러 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 3,000 ₩</option>
+                                        <option th:value="티셔츠" value="tshirts">티셔츠 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 2,000 ₩</option>
+                                        <option th:value="키링" value="keyring">키 링 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 1,500 ₩</option>
+                                      </select>
 
+                                    <br>
+
+                                    <br>
+
+                                    <br>
+
+                                    <div>
+                                        <h5  style="float: left;">결제 금액 : &nbsp;&nbsp; </h5>
+                                        <h5 style="float: left; width: 15%;"><strong id ="totalPrice" th:name="totalPrice" th:id="totalPrice"> 0</strong> <strong>₩</strong></h5>
+
+                                        <button type="button" th:type="submit" class="custom-btn btn btn-danger" style="float: left; position: relative; top: -5px;">결제</button>
+
+                                        <a type="button" th:href="@{/wishList/{designManageSeq}(designManageSeq=${design.designManageSeq})}"  class="custom-btn btn btn-primary" style="float: right; position: relative; top: -5px;" >디자인 찜하기</a>
+
+                                    </div>
+                                </form>
                                 <script>
-                                    function chageLangSelect(designPrice){
+                                    function changeLangSelect(designPrice){
+
                                         var langSelect = document.getElementById("selectbox");
                                         // select element에서 선택된 option의 value가 저장된다.
                                         var selectValue = langSelect.options[langSelect.selectedIndex].value;
@@ -308,15 +337,17 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                         
                                         var goodsPrice;
 
-                                         if(selectValue=='tumbler'){
+                                         if(selectValue=='텀블러'){
                                             goodsPrice = 3000;
                                             
-                                         }else if (selectValue =='tshirts'){
+                                         }else if (selectValue =='티셔츠'){
                                             goodsPrice = 2000;
                                             
-                                         }else if (selectValue =='keyring'){
+                                         }else if (selectValue =='키링'){
                                             goodsPrice = 1500;
                                             
+                                         }else{
+                                             goodsPrice = 0;
                                          }
                                          document.getElementById('totalPrice').innerHTML = goodsPrice + designPrice
                                         
@@ -341,31 +372,32 @@ https://www.tooplate.com/view/2129-crispy-kitchen
         </main>
 
         <footer class="site-footer section-padding">
-            
+
             <div class="container">
-                
+
                 <div class="row">
 
                     <div class="col-12">
-                        <h4 class="text-white mb-4 me-5">Crispy Kitchen</h4>
+                        <h4 class="usFont">US</h4>
                     </div>
 
                     <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
                         <h6 class="text-white mb-lg-4 mb-3">Location</h6>
 
-                        <p>121 Einstein Loop N, Bronx, NY 10475, United States</p>
+                        <p>서울특별시 노원구 동일로 214길 32 갈멜관</p>
 
-                        <a href="https://goo.gl/maps/wZVGLA7q64uC1s886" class="custom-btn btn btn-dark mt-2">Directions</a>
+                        <a href="https://goo.gl/maps/ZEYnh4QvBhR88TPx9" class="custom-btn btn btn-dark mt-2">Directions</a>
                     </div>
 
                     <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
-                        <h6 class="text-white mb-lg-4 mb-3">Opening Hours</h6>
+                        <h6 class="text-white mb-lg-4 mb-3">Company</h6>
 
-                        <p class="mb-2">Monday - Friday</p>
+                        <p class="mb-2">상호명 : SoHee's Family (주) </p>
 
-                        <p>10:00 AM - 08:00 PM</p>
+                        <p>대표이사 : 손소휘</p>
+                        <p>대표전화 : 010 - XXXX - XXXX</p>
+                        <p>사업자 등록번호 : xxx-xx-xxxxx</p>
 
-                        <p>Tel: <a href="tel: 010-02-0340" class="tel-link">010-02-0340</a></p>
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
@@ -376,20 +408,21 @@ https://www.tooplate.com/view/2129-crispy-kitchen
 
                             <li><a href="#" class="social-icon-link bi-instagram"></a></li>
 
-                            <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+                            <li><a href="https://twitter.com/search?q=tooplate.com&src=typed_query&f=live" target="_blank"
+                                   class="social-icon-link bi-twitter"></a></li>
 
                             <li><a href="#" class="social-icon-link bi-youtube"></a></li>
                         </ul>
-                    
+
                         <p class="copyright-text tooplate-mt60">Copyright © 2022 Crispy Kitchen Co., Ltd.
-                        <br>Design: <a rel="nofollow" href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
-                        
+                            <br>Design: <a rel="nofollow" href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+
                     </div>
 
                 </div><!-- row ending -->
-                
-             </div><!-- container ending -->
-             
+
+            </div><!-- container ending -->
+
         </footer>
 
         <!-- Modal -->
@@ -445,9 +478,9 @@ https://www.tooplate.com/view/2129-crispy-kitchen
         </div>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/custom.js"></script>
+        <script th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+        <script th:src="@{/js/bootstrap.bundle.min.js}" src="js/bootstrap.bundle.min.js"></script>
+        <script th:src="@{/js/custom.js}" src="js/custom.js"></script>
 
     </body>
 </html>
