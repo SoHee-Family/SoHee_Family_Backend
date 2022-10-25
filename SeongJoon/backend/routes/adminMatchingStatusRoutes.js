@@ -1,0 +1,32 @@
+const path = require('path');
+const express = require('express');
+const router = express.Router();
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const Matching = require('../models/matching');
+const ApplyForm = require('../models/ApplyForm')
+const app = express();
+router.route('/')
+.get(async (req,res,next)=>{
+            const matching = new Matching();
+            const info = await matching.info();
+            console.log(info)
+            res.render('admin-matching_status',{
+                info : info,
+            });
+        })
+.post(async (req,res,next)=>{
+    const matching = new Matching(req.body);
+    const applyForm = new ApplyForm();
+    const info = await matching.info();
+    const id = info.id[req.body.delidx]
+    console.log(id)
+    applyForm.delete(id)
+    matching.delete().then(result =>{   
+    res.redirect('/admin/matching/status')
+    
+            })
+})
+
+module.exports =router;
