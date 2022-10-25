@@ -8,25 +8,25 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../../img/favicon.png" rel="icon">
+  <link href="../../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../lib/animate/animate.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
 
     <!-- Home button -->
     <script src="https://kit.fontawesome.com/77ad8525ff.js" crossorigin="anontmous"></script>
-    
+
   <!-- =======================================================
     Theme Name: Regna
     Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
@@ -44,32 +44,87 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="/admin"><img src="../img\logo.png" style="width:10%; height:10%;"></a>
+        <a href="/admin"><img src="../../img\logo.png" style="width:10%; height:10%;"></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="/admin"><img src="../img\home.png"></a></li>
+          <li class="menu-active"><a href="/admin"><img src="../../img\home.png"></a></li>
           <li style="color: white;">admin님</li>
           <li class="menu-active"><a href="/admin">마이페이지</a></li>
-          <li class="menu-active"><a href="/logout">로그아웃</a></li>
-        </ul>
+          <li class="menu-active"><a href="/logout">로그아웃</a></li> </ul>
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
 
+
   <!--==========================
     Hero Section
   ============================-->
-  <section id="hero">
+  <section id="hero" style="height: 120vh;">
     <div class="login-page">
-        <p><h1>활동보고서 관리</h1></a></p>
-      <div class="admin">
-          <p><a href="/admin/report"><h2>활동보고서 관리</h2></a></p>
-          <p><a href="/admin/matching"><h2>매칭 관리</h2></a></p>
-          <p><a href="/admin/member"><h2>회원 관리</h2></a></p>
+            <p><h1>매칭 관리</h1></a></p>
+        <div class="admin-matching_management">
+          <text style="font-size: 25px; color:yellowgreen;">독거노인</text>
+              <table class="table table-hover">
+                <thead>
+                <tr>   
+                    <th>이름</th>
+                    <th>주소</th>
+                    <th>특이사항</th>
+                    <th>선택</th>
+                </tr>    
+                </thead>
+                <tbody>
+                  {% set fruits = granddata.name %}
+                  {% for vitem in grandindx%}
+                  <tr>
+                    <td>{{granddata.name[vitem]}}</td>
+                    <td>{{granddata.address[vitem]}}</td>
+                    <td>{{granddata.specialNote[vitem]}}</a></td>
+                    
+                    <form name="matching" accept="/matching" method="post">
+                      <td><input type="checkbox" name="choose1" value="{{vitem}}"></td>
+                    
+                    
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table><p></p>
+             
+              <text style="font-size: 25px; color:yellowgreen;">매칭자</text>
+              <table class="table table-hover">
+                <thead>
+                <tr>   
+                    <th>이름</th>
+                    <th>주소</th>
+                    <th>매칭형식</th>
+                    <th>선택</th>
+                </tr>    
+                </thead>
+                <tbody>
+                
+                  {% for item in reportinfo%}
+                  <tr>
+                    <td>{{chdata.name[item]}}</td>
+                    <td>{{chdata.region[item]}}</td>
+                    <td>{{chdata.belong[item]}}</a></td>
+                    
+                      <td><input type="checkbox" name="choose2" value="{{item}}"></td>
+                    
+                    
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+          </div>
+          
+            <td><button class="w-btn w-btn-indigo"  style="left: 280px;" type="text" type="submit">매칭</button></td>
+          </form>
+            
       </div>
     </div>
+    
 
   </section><!-- #hero -->
 
@@ -145,4 +200,3 @@
 
 </body>
 </html>
-

@@ -8,25 +8,25 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../../img/favicon.png" rel="icon">
+  <link href="../../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../lib/animate/animate.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
 
     <!-- Home button -->
     <script src="https://kit.fontawesome.com/77ad8525ff.js" crossorigin="anontmous"></script>
-    
+
   <!-- =======================================================
     Theme Name: Regna
     Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
@@ -44,16 +44,15 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="/admin"><img src="../img\logo.png" style="width:10%; height:10%;"></a>
+        <a href="/admin"><img src="../../img\logo.png" style="width:10%; height:10%;"></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="/admin"><img src="../img\home.png"></a></li>
+          <li class="menu-active"><a href="/admin"><img src="../../img\home.png"></a></li>
           <li style="color: white;">admin님</li>
           <li class="menu-active"><a href="/admin">마이페이지</a></li>
-          <li class="menu-active"><a href="/logout">로그아웃</a></li>
-        </ul>
+          <li class="menu-active"><a href="/logout">로그아웃</a></li></ul>
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
@@ -63,13 +62,37 @@
   ============================-->
   <section id="hero">
     <div class="login-page">
-        <p><h1>활동보고서 관리</h1></a></p>
-      <div class="admin">
-          <p><a href="/admin/report"><h2>활동보고서 관리</h2></a></p>
-          <p><a href="/admin/matching"><h2>매칭 관리</h2></a></p>
-          <p><a href="/admin/member"><h2>회원 관리</h2></a></p>
-      </div>
+      <p><h1>매칭현황</h1></a><button class="w-btn w-btn-indigo" style="left: 280px; top: -90px;"><a href="/admin/matching">뒤로가기</a></button></p>
+      <div class="admin-matching_status">
+          <table class="table table-hover">
+              <thead>
+              <tr>   
+                  <th>매칭자</th>
+                  <th>노인</th>
+                  <th>매칭형식</th>
+                  <th>매칭해제</th>
+              </tr>    
+              </thead>
+              <tbody>
+                {% set fruits = info.name %}
+                {% for item in fruits%}
+                <tr>
+                  <td>{{info.name[loop.index-1]}}</td>
+                  <td>{{info.older[loop.index-1]}}</td>
+                  <td>{{info.belong[loop.index-1]}}</a></td>
+                  <form name="del" accept="/del" method="post">
+                    <td>
+                      <button type="text" name="delidx" type="submit" value="{{loop.index-1}}">매칭해제</button>
+                    </td>
+                  </form>
+                  
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
     </div>
+    </div>
+    
 
   </section><!-- #hero -->
 
@@ -145,4 +168,3 @@
 
 </body>
 </html>
-

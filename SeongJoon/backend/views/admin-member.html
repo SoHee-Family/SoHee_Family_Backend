@@ -44,16 +44,15 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#메인페이지"><h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);"> US </h1></a>
+        <a href="/admin"><img src="../img\logo.png" style="width:10%; height:10%;"></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#home"><span class="icon solid style2 major fas fa-solid fa-house"></span></a></li>
-          <li style="color: white;">{{name}}</li>
-          <li class="menu-active"><a href="#mypage">마이페이지</a></li>
-          <li class="menu-active"><a href="#logout">로그아웃</a></li>
-        </ul>
+          <li class="menu-active"><a href="/admin"><img src="../img\home.png"></a></li>
+          <li style="color: white;">admin님</li>
+          <li class="menu-active"><a href="/admin">마이페이지</a></li>
+          <li class="menu-active"><a href="/logout">로그아웃</a></li></ul>
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
@@ -61,12 +60,12 @@
   <!--==========================
     Hero Section
   ============================-->
-  <section id="hero">
+  <section id="hero" style="height: 160vh;">
     <div class="login-page">
       <p><h1>회원관리</h1></a></p>
       <div class="admin-member">
-        <text style="font-size: 25px; color:yellowgreen;">소년소녀가장</text>
-            <table class="table1">
+        <h2><text style="font-size: 25px; color:yellowgreen;">소년소녀가장</text></h2>
+            <table class="table" style="margin: auto;">
                 <thead>
                     <tr>
                         <th>이름</th>
@@ -76,29 +75,27 @@
                     </tr>    
                 </thead>
                 <tbody>
+                  
+                  {% set idx = gmidx %}
+                  
+                    {% for item in gmidx%}
                     <tr>
-                        <td>이준범</td>
-                        <td>JUN</td>
-                        <td>구로</td>
-                        <td><a href="">보기</a></td>
+                      <td>{{chdata.name[item]}}</td>
+                      <td>{{chdata.id[item]}}</td>
+                      <td>{{chdata.region[item]}}</a></td>
+                      <form name="del" accept="/del">
+                        <td>
+                          <a href="/admin/member/aplly/{{chdata.id[item]}}" button type = "button">{{gmreportinfo.result[loop.index-1]}}</a>
+                        </td>
+                      </form>
+                      
                     </tr>
-                    <tr>
-                        <td>윤찬영</td>
-                        <td>CHAN</td>
-                        <td>개봉</td>
-                        <td>미작성</td>
-                    </tr>    
-                    <tr>
-                        <td>김성준</td>
-                        <td>SG</td>
-                        <td>문정</td>
-                        <td><a href="">보기</td>
-                    </tr>    
+                    {% endfor %}
                 </tbody>
             </table>
             <p></p>
-            <text style="font-size: 25px; color:yellowgreen;">봉사자</text>
-            <table class="table1">
+            <h2><text style="font-size: 25px; color:yellowgreen;">봉사자</text></h2>
+            <table class="table" style="margin: auto;" >
               <thead>
                   <tr>
                       <th>이름</th>
@@ -109,66 +106,67 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>이준범</td>
-                      <td>JUN</td>
-                      <td>구로</td>
-                      <td><a href="">보기</a></td>
-                  </tr>
-                  <tr>
-                      <td>윤찬영</td>
-                      <td>CHAN</td>
-                      <td>개봉</td>
-                      <td>미작성</td>
-                  </tr>    
-                  <tr>
-                      <td>김성준</td>
-                      <td>SG</td>
-                      <td>문정</td>
-                      <td><a href="">보기</td>
-                  </tr>    
-              </tbody>
-            </table>
-            <p></p>
-            <text style="font-size: 25px; color:yellowgreen;">독거노인</text>
-            <table class="table1">
-              <thead>
-                  <tr>
-                      <th>이름</th>
-                      <th>주소</th>
-                      <th>특이사항</th>
-                      <th>삭제</th>
-                  </tr>    
-              </thead>
-                  <tbody>
-                    {% set fruits = data.name %}
-                    {% for item in fruits%}
+                    {% set vidx = vidx %}
+                    {% for vitem in vidx%}
                     <tr>
-                      <td>{{data.name[loop.index-1]}}</td>
-                      <td>{{data.address[loop.index-1]}}</td>
-                      <td>{{data.specialNote[loop.index-1]}}</a></td>
-                      <form name="del" accept="/del" method="post">
-                        <td><button type="text" name="delidx" type="submit" value="{{loop.index-1}}">삭제</button></td>
+                      <td>{{chdata.name[vitem]}}</td>
+                      <td>{{chdata.id[vitem]}}</td>
+                      <td>{{chdata.region[vitem]}}</a></td>
+                      <form name="del" accept="/del" >
+                        <td>
+                          <a href="/admin/member/aplly/{{chdata.id[vitem]}}" type = "button">{{vreportinfo.result[loop.index-1]}}</a>
+                        </td>
                       </form>
                       
                     </tr>
                     {% endfor %}
+                  </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <text style="font-size: 25px; color:yellowgreen;">독거노인</text>
 
-                  <form name="plus" accept="/test" method="post">
-                    <td><input name="name"  type="text" placeholder="입력"></td>
-                    <td><input name="address" type="text" placeholder="입력"></td>
-                    <td><input name="specialNote" type="text" placeholder="입력"></td>
-                    <td><input disabled></input></td>
-                    <form name="plus" action=""> 
-                      <p><button class="w-btn w-btn-indigo" style="left: 280px;" type="submit">인원추가</button></p>
-                    </form>
-                        
+            <div class="tableContainer">
+            <table class="membertable" style="margin: auto;" >
+              <thead>
+                  <tr>
+                      <th class="fixedHeader">이름</th>
+                      <th class="fixedHeader">지역</th>
+                      <th class="fixedHeader">특이사항</th>
+                      <th class="fixedHeader">봉사자</th>
+                      <th class="fixedHeader">삭제</th>
+                  </tr>    
+              </thead>
+              <tbody>
+                {% set fruits = granddata.name %}
+                {% for item in fruits%}
+                <tr>
+                  <td>{{granddata.name[loop.index-1]}}</td>
+                  <td>{{granddata.address[loop.index-1]}}</td>
+                  <td>{{granddata.specialNote[loop.index-1]}}</a></td>
+                  <td>{{granddata.matching[loop.index-1]}}</a></td>
+                  <form name="del" accept="/del" method="post">
+                    <td>
+                      <button type="text" name="delidx" type="submit" value="{{loop.index-1}}">삭제</button>
+                    </td>
                   </form>
-                  </tbody>
+                  
+                </tr>
+                {% endfor %}
+                <form  accept="/test" method="post">
+                  <td><input name="name"  type="text" placeholder="이름을 입력해주세요." style="width:200px;height:35px;font-size:15px;">&nbsp&nbsp&nbsp</td>
+                  <td><input name="address" type="text" placeholder="지역을 입력해주세요." style="width:200px;height:35px;font-size:15px;">&nbsp&nbsp&nbsp</td>
+                  <td><input name="specialNote" type="text" placeholder="특이사항을 입력해주세요." style="width:200px;height:35px;font-size:15px;"></td>
+                  <td><form name="plus" action=""> 
+                    <button class="w-btn w-btn-indigo" style="left: 90px;" type="submit">인원추가</button>
+                  </form>
+              </form>
+              </tbody>
+              
             </table>
             
-            
-      </div>
-    </div>
+          </div>
+        </div>
     
 
   </section><!-- #hero -->
@@ -198,27 +196,50 @@
         -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
+      <div class="info">
+
+
+        <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
+          
+
+          <p class="mb-2">상호명 : SoHee's Family (주) </p>
+
+          <p>대표이사 : 손소휘</p>
+          <p>대표전화 : 010 - XXXX - XXXX</p>
+          <p>사업자 등록번호 : xxx-xx-xxxxx</p>
+
+      </div>
+
+      </div>
+      <div class="social-links" style="text-align: right;">
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+
     </div>
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="../lib/jquery/jquery.min.js"></script>
-  <script src="../lib/jquery/jquery-migrate.min.js"></script>
-  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../lib/easing/easing.min.js"></script>
-  <script src="../lib/wow/wow.min.js"></script>
-  <script src="../lib/waypoints/waypoints.min.js"></script>
-  <script src="../lib/counterup/counterup.min.js"></script>
-  <script src="../lib/superfish/hoverIntent.js"></script>
-  <script src="../lib/superfish/superfish.min.js"></script>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
 
   <!-- Contact Form JavaScript File -->
-  <script src="../contactform/contactform.js"></script>
+  <script src="contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="../js/main.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>

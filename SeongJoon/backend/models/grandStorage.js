@@ -45,21 +45,27 @@ static getgrands(isAll,...fields){//인자를 여러개 받아올 수 있다.
     grands.name.push(grandInfo.name);
     grands.address.push(grandInfo.address);
     grands.specialNote.push(grandInfo.specialNote);
+    grands.matching.push("없음");
     fs.writeFile("./databases/grand.json",JSON.stringify(grands));
     return {success:true};
 }
 static async del(grandIdx){
   const grands = await this.getgrands(true);
-  //데이터 추가
   console.log("3: "+grandIdx.delidx)
   grands.name.splice(grandIdx.delidx,1);
   grands.address.splice(grandIdx.delidx,1);
   grands.specialNote.splice(grandIdx.delidx,1);
-  console.log(grands)
+  grands.matching.splice(grandIdx.delidx,1);
   fs.writeFile("./databases/grand.json",JSON.stringify(grands));
   return {success:true};
 }
-
+static async matching(grandIdx){
+  const grands = await this.getgrands(true);
+  //데이터 추가
+  grands.matching[grandIdx]="매칭완료"
+  fs.writeFile("./databases/grand.json",JSON.stringify(grands));
+  return {success:true};
+}
 
 }
 

@@ -41,12 +41,12 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#메인페이지"><h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);"> US </h1></a>
+        <a href="#메인페이지"><img src="../img\logo.png" style="width:10%; height:10%;"></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="/">Home</a></li>
+          <li class="menu-active"><a href="#home"><img src="../img\home.png"></a></li>
           <!-- <li class="menu-active">Admin님<a href="#메인홈페이지">로그아웃</a></li> -->
           <!-- <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
@@ -81,7 +81,7 @@
   <section id="hero">
    <div class="login-page">
     <div class="form">
-        <p><h1 style="color:skyblue">회원가입</h1></p>
+        <p><h1 style="color:yellow">회원가입</h1></p>
         {% if msg %}
         <div>
           <h3 style="color: red;">{{msg}}</h3>
@@ -89,8 +89,8 @@
         {% endif %}
         <form accept="/test" method="post">
           <div class="signup_box">
-            <p><input name="id" type="text" placeholder="아이디"></p>
-            <p><input name="psword" type="password" placeholder="비밀번호"></p>
+            <p><input name="id" type="text" minlegth='4' maxlength='12'placeholder="아이디 (영문 4~12자리)"></p>
+            <p><input name="psword" type="password" maxlength='17' placeholder="비밀번호 (16자리 이하)"></p>
             <p><input name="psword_check" type="password" placeholder="비밀번호 확인"></p>
             <p><input name="name" type="text" placeholder="이름"></p>
             <p><input name="tel" type="text" placeholder="전화번호"></p>
@@ -123,12 +123,12 @@
                 <option value="중구">중구</option>
                 <option value="중랑구">중랑구</option>
             </select></p>
-              <p><input type="radio" name="belong" value="소년소녀가장">소년소녀 가장&nbsp;&nbsp;
+              <p style="color:yellow;"><input type="radio" name="belong" value="소년소녀가장">소년소녀 가장&nbsp;&nbsp;
               <input type="radio" name="belong" value="봉사자">봉사자</p> 
             <form action=""> 
               <p><button class="w-btn w-btn-indigo" type="submit">회원가입</button></p>
             </form>
-              <p>이미 아이디가 있으신가요? &nbsp;&nbsp;<a href="/login">로그인</a></p>
+              <p style="color:black;">이미 아이디가 있으신가요? &nbsp;&nbsp;<a href="/login">로그인</a></p>
         </form>
     </div>
    </div>
@@ -159,6 +159,30 @@
         -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
+      <div class="info">
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <li>서울시 송파구 백제고분로 27길 40-12</li>
+        </div>
+        
+        <div>
+          <i class="fa fa-envelope"></i>
+          <li>kingsmlee1234@gmail.com</li>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <li>+82 10 8442 9209</li  >
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+
     </div>
   </footer><!-- #footer -->
 
