@@ -11,20 +11,31 @@
 	
 </div>
 
-## 팀원소개
+## 😎 팀원소개
 + 손소휘 (https://github.com/Sohwi-Son)
 + 김성준 (https://github.com/kimseongjun00)
 + 김지용 (https://github.com/JiYongKim-A)
-
-## 😎 어떤 프로젝트 인가요?
-
-- 이프로젝트는 ~~~
++ 이준범
++ 윤찬영
 
 <br>
 
-### 📃 유스케이스 다이어그램
+## 🎬 어떤 프로젝트 인가요?
 
-이미지 넣을 예정
+이번 프로젝트는 현 대한민국의 독거노인의 건강, 사회문화 및 우울 등의 문제 그리고 소년소녀가장의 경제, 정서, 사회적응 문제를 도출하여
+이번 플랫폼을 통해 독거노인과 소년소녀 가장을 매칭 및 관리해주는 시스템을 구축하여 독거노인과 소년소녀 가장을 서로 사회적 가족 관계를 맺게 하고자 한다.
+이들은 서로 상호작용하여 함께 의지하고 외로움, 고립, 소외 등의 문제를 해소시킬 수 있다고 생각된다. 더불어 소년소녀 가장과 독거노인 함께하는 시간 속 독거노인의 갑작스러운 건강상의 문제를 미리 확인하여 위험 상황을 줄일 수 있을 것으로 예상한다.
+
+이뿐만 아니라 독거노인과 소년소녀 가장이 한 자리에 모여 캐릭터와 같은 그림을 그리는 프로그램을 통해 나온 디자인을 텀블러 혹은 팔찌, 키링과 같은 상품으로 만들어 판매하여 얻은 수익금으로 독거노인과 소년소녀 가장에게 경제적인 도움을 줄 수 있는 플랫폼을 만들어 볼 예정이다. 
+
+
+<br>
+
+## 📃 Usecase Diagram
+
+<img width="1336" alt="스크린샷 2022-09-30 오후 7 36 02" src="https://user-images.githubusercontent.com/81874493/193255530-7a548a1f-2f45-489e-9c0a-c87e485bc536.png">
+
+
 
 <br>
 
@@ -89,7 +100,7 @@
     
     - Pull Request는 코드 리뷰를 통해 Comment를 남기고 approve 받은 이후 merge 시킨다.
         - 논의 사항이 있을 경우 카카오톡 혹은 노션을 통해 공지하고 논의 하여 해결하고 해결 한다.
-            - 문제 완료 사항은 정리하여 LevelUpToast Backend Notify 문제점 및 해결사항에 작성한다.
+            - 문제 완료 사항은 정리하여 SoHee_Family Backend Notify 문제점 및 해결사항에 작성한다.
 
 <br>
 
@@ -97,7 +108,8 @@
 
 <br>
 
-이미지 넣을 예정 ~~
+<img width="1431" alt="system architecture" src="https://user-images.githubusercontent.com/81874493/193255543-3ebba9e6-eff6-46a4-9295-abbd9da9de5f.png">
+
 
 <br>
 
@@ -124,6 +136,8 @@ ex)
 [개발 중 도움이 되었던 문서가 있을 시 이에 대한 참고 문서를 하이퍼링크 형태로 명시한다.]
 
 ex) [Spring Boot 공식 문서](https://spring.io/projects/spring-boot)
+	
+* [select box 선택시 submit 참고 문서](https://que-n-a.tistory.com/entry/select-tag-option-%EC%84%A0%ED%83%9D-%EC%8B%9C-form-submit-%EB%B3%B4%EB%82%B4%EA%B8%B0)
 
 <br>
 

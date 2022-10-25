@@ -1,0 +1,309 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>US</title>
+
+    <!-- CSS FILES -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/bootstrap-icons.css}">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet"
+          th:href="@{/css/tooplate-crispy-kitchen.css}">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        .container {
+
+            max-width: 1000px;
+
+        }
+        .field-error{
+            border-color: #dc3545;
+
+            color: #dc3545;
+        }
+        .object-error{
+            border-color: #dc3545;
+
+            color: #dc3545;
+            font-size: 1.2em;
+
+        }
+
+    </style>
+<!--
+
+Tooplate 2129 Crispy Kitchen
+
+https://www.tooplate.com/view/2129-crispy-kitchen
+
+-->
+    </head>
+    
+    <body>
+        
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="usFont" th:href="@{/}" href="index.html">
+                    US
+                </a>
+
+
+                <div class="d-lg-none">
+                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">로그인</button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/about}" href="about.html">회사소개</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/menu}" href="menu.html">상품</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/support}" href="support.html">후원</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/news}" href="news.html">봉사 및 기부 활동</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-none d-lg-block">
+                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Login</button>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <main>
+
+            <header class="site-header site-contact-header">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <h1 class="text-white">Say Hi</h1>
+
+                            <strong class="text-white">We are happy to get in touch with you</strong>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="overlay"></div>
+            </header>
+
+            <section class="contact section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2 class="mb-4">회원가입</h2>
+                        </div>
+                       
+                        <div>
+                            <form class="custom-form contact-form row" th:action th:object="${signUpForm}" action="#" method="post" role="form">
+
+                                <div th:if="${#fields.hasGlobalErrors()}">
+
+                                    <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+                                       th:text="${err}">전체 오류 메시지</p>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <label for="id" class="form-label">ID</label>
+                                    <div class="field-error" th:errors="*{id}"/>
+                                    <input type="text" name="id" th:field="*{id}" id="id" class="form-control" placeholder="ID" required>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <label for="pw" class="form-label">Password</label>
+                                    <div class="field-error" th:errors="*{pw}"/>
+                                    <input type="password" name="pw" th:field="*{pw}" id="pw" class="form-control" placeholder="PW">
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <label for="name" class="form-label">이름</label>
+                                    <div class="field-error" th:errors="*{name}"/>
+                                    <input type="text" name="name" th:field="*{name}" id="name" class="form-control" placeholder="이름을 작성해 주세요" required>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <label for="tel" class="form-label">전화번호</label>
+                                    <div class="field-error" th:errors="*{tel}"/>
+                                    <input type="tel" name="tel" id="tel" th:field="*{tel}" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" class="form-control" placeholder="010-xxxx-xxxx">
+                                </div>
+
+                                <div class="col-12">
+
+                                    <label for="address" class="form-label">주소</label>
+                                    <div class="field-error" th:errors="*{address}"/>
+                                    <input type="address" name="address" id="address"  th:field="*{address}" class="form-control" placeholder="상세 주소" required="">
+
+                                    <label for="e_mail" class="form-label">Email</label>
+                                    <div class="field-error" th:errors="*{e_mail}"/>
+                                    <input type="email" name="e_mail" id="e_mail" th:field="*{e_mail}" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="e_mail" required="">
+
+                                    
+                                </div>
+
+                                <div class="col-12 ms-auto">
+                                    <button type="submit" class="form-control">회원가입</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    
+                        
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer section-padding">
+            
+            <div class="container">
+                
+                <div class="row">
+
+                    <div class="col-12">
+                        <h4 class="text-white mb-4 me-5">US</h4>
+                    </div>
+
+                    <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Location</h6>
+
+                        <p>서울특별시 노원구 동일로 214길 32 갈멜관</p>
+
+                        <a href="https://goo.gl/maps/ZEYnh4QvBhR88TPx9" class="custom-btn btn btn-dark mt-2">Directions</a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Company</h6>
+
+                        <p class="mb-2">상호명 : SoHee's Family (주) </p>
+
+                        <p>대표이사 : 손소휘</p>
+                        <p>대표전화 : 010 - XXXX - XXXX</p>
+                        <p>사업자 등록번호 : xxx-xx-xxxxx</p>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">Social</h6>
+
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="https://twitter.com/search?q=tooplate.com&src=typed_query&f=live" target="_blank"
+                            	 class="social-icon-link bi-twitter"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                        </ul>
+                    
+                        <p class="copyright-text tooplate-mt60">Copyright © 2022 Crispy Kitchen Co., Ltd.
+                        <br>Design: <a rel="nofollow" href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                        
+                    </div>
+
+                </div><!-- row ending -->
+                
+             </div><!-- container ending -->
+             
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade" id="BookingModal" tabindex="-1" aria-labelledby="BookingModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="mb-0">Reserve a table</h3>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body d-flex flex-column justify-content-center">
+                        <div class="booking">
+                            
+                            <form class="booking-form row" role="form" action="#" method="post">
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <label for="name" class="form-label">ID</label>
+
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="ID를 작성해주세요" required>
+                                </div>
+
+                                &nbsp;
+
+                                &nbsp;
+                                
+
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <label for="password" class="form-label">Password</label>
+
+                                    <input type="password" name="password" id="password"  class="form-control" placeholder="PW를 작성해 주세요"  required>
+                                </div>
+
+                                &nbsp;
+
+                                &nbsp;
+                                
+
+                                <div class="col-lg-6 col-12" style="width: 100%;">
+                                    <button type="submit" class="form-control" style="background-color: rgb(237, 203, 84);">Login</button>
+                                </div>
+                                
+                                
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer"></div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+        <script th:src="@{/js/bootstrap.bundle.min.js}" src="js/bootstrap.bundle.min.js"></script>
+        <script th:src="@{/js/custom.js}" src="js/custom.js"></script>
+
+    </body>
+</html>

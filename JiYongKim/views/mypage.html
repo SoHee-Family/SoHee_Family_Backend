@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Regna Bootstrap Template</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Regna
+    Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+<style>
+  #select{
+font-size: 3rem  ;
+    color: white;
+    
+  }
+
+</style>
+</head>
+
+<body>
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="#hero"><img src="" alt="" title="" /></img></a>
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);">US</h1>
+      </div>
+
+      
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="/">홈으로</a></li>
+         
+          <li><h1 style="color: white;">{{name}}</h1></li>
+          
+          <li><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/logout' "type="button">
+            로그아웃
+        </button></li>
+      
+        </ul>     
+      </nav><!-- #nav-menu-container -->
+
+      
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Hero Section
+  ============================-->
+  <section id="hero">
+    <div class="mypage">
+      
+      <br>
+
+      <br>
+
+      <div>
+        {% if older_name != null %}
+        <h2>매칭노인 : {{older_name}} </h2>
+        {% else%}
+        <h2>매칭노인 :
+          <button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/apply' "type="button">
+           매칭 신청하기
+         </button>
+        </h2>
+        {% endif%}
+      </div>
+        
+        <h2>날짜 
+          <form action="/mypage" method="post">
+
+          <select name="month" onchange="this.form.submit()">
+          {% if month != null%}
+          <option selected>[2022년 {{month}}월]</option>
+          {% endif %}
+          <option value="1">2022년 1월</option>
+          <option value="2">2022년 2월</option>
+          <option value="3">2022년 3월</option>
+          <option value="4">2022년 4월</option>
+          <option value="5">2022년 5월</option>
+          <option value="6">2022년 6월</option>
+          <option value="7">2022년 7월</option>
+          <option value="8">2022년 8월</option>
+          <option value="9">2022년 9월</option>
+          <option value="10">2022년 10월</option>
+          <option value="11">2022년 11월</option>
+          <option value="12">2022년 12월</option>  
+        </select>
+      </form>
+    </h2>
+
+        <table border="2" style="width:580px; height:500px; display: block; overflow:auto; ">
+            <tr>
+                <td style="width: 100px; table-layout:fixed">날짜</td> <td style="width: 100px; table-layout:fixed">노인이름</td> <td style="width: 200px; table-layout:fixed">매칭형식</td> <td style="width: 180px; table-layout:fixed">보고서</td>
+            </tr>
+
+            <!-- <td>-</td> <td>-</td> <td>-</td> <td>-</td> -->
+            
+
+            {% for report in reports %}     
+            {% if report != null %}
+            <tr>
+              <td>{{report.date}}</td> <td>{{report.name}}</td> <td>{{report.belong}}</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/report/'+`{{report.uuid}}` "type="button">
+                보고서
+            </button></td>
+          </tr>
+            {% endif%}
+            {% endfor %}
+
+          
+            <!-- <tr>
+                <td>2022/01/03</td> <td>김지용</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
+                  보고서
+              </button></td>
+            </tr>
+
+            <tr>
+              <td>2022/03/17</td> <td>이준범</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
+                보고서
+            </button></td>
+          </tr>
+          
+          <tr>
+            <td>2022/04/21</td> <td>윤찬영</td> <td>소년소녀가장</td> <td><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
+              보고서
+          </button></td>
+        </tr> -->
+
+        </table>
+
+        <div>
+          <button class="w-btn w-btn-gra1 w-btn-gra-anim" onclick = "location.href = '/report' "type="button">
+            보고서 작성하기
+        </button>
+        </div>
