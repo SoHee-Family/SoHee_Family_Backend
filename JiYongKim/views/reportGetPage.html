@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Regna Bootstrap Template</title>
+  <title>US</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="/img/favicon.png" rel="icon">
+  <link href="img/logo3.png" rel="icon">
   <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -48,29 +48,18 @@ font-size: 3rem  ;
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img src="" alt="" title="" /></img></a>
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);">US</h1>
+        <a href="/"><img src="../../img\logo1.png" style="width:10%; height:10%;"></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="/">홈으로</a></li>
-         
-          <li><h1 style="color: white;">{{name}}</h1></li>
-          
-          <li><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/logout' "type="button">
-            로그아웃
-        </button></li>
-      
-        </ul>     
+          <li class="menu-active"><a href="/mypage"><img src="../../img\home.png"></a></li>
+          <li style="color: white;">{{name}}님</li>
+          <li class="menu-active"><a href="/logout">로그아웃</a></li></ul>
       </nav><!-- #nav-menu-container -->
-
-
-
-      
     </div>
   </header><!-- #header -->
+
 
   <!--==========================
     Hero Section
@@ -78,43 +67,8 @@ font-size: 3rem  ;
   <section id="hero">
     <div class="machingapply">
       <form action="/" method="post" enctype="multipart/form-data">
-      
-
-        <!-- <div id="current_date"></p> -->
-          <!-- <div>
-            <h2> 작성 날짜 : {{date}} </h2>
-          </div>
-          
         
-        <br> -->
-<!-- 
-        <div>
-          <h2> 이름 : <input name="name" type="text" value="{{name}}" readonly style="text-align: center;" ></h2>
-        </div>
-
-        <div>
-          <h2> 노인 이름 : <input name="older_name" value="{{older_name}}" type="text" style="text-align: center;" readonly></h2>
-        </div>
-
-        <div>
-          <h2> 지원 형식 : <input name="belong" type="text" value="{{belong}}" style="text-align: center;" readonly></h2>
-        </div>
-       
-        <div>
-          <h2> 활동 사진 : 
-            <img src="http://localhost:8080/uploads/{{activity_img}}" style="width: 300px; height: 200px;" >
-        </div>
-
-        <div>
-          <h2> 활동 제품 사진 : 
-            <img src="http://localhost:8080/uploads/{{design_img}}" style="width: 300px; height: 200px;" >
-        </div>
-      
-        <div>
-          <h2> 활동 보고서 : <input name = "report" value="{{report}}" readonly> </h2>
-        </div>       -->
-        
-        <table>          
+                
           <tr>
             <th style="color: white;"> <h2> 작성 날짜 : {{date}} </h2> </th>
           </tr>
@@ -131,19 +85,19 @@ font-size: 3rem  ;
             <th style="color: white;"> <h2> 지원 형식 : <input name="belong" type="text" value="{{belong}}" style="text-align: center;" readonly></h2> </th>
           </tr>
 
-          
+          <table>  
           <tr>
             <th style="color: white;"> <h2> 활동 사진 : 
-              <img src="http://localhost:8080/uploads/{{activity_img}}" style="width: 300px; height: 200px;" > </th>
+              <img src="http://210.123.254.206:8080/uploads/{{activity_img}}" style="width: 300px; height: 200px;" > </th>
             <th style="color: white;"> <h2> 활동 제품 사진 : 
-              <img src="http://localhost:8080/uploads/{{design_img}}" style="width: 300px; height: 200px;" > </th>
+              <img src="http://210.123.254.206:8080/uploads/{{design_img}}" style="width: 300px; height: 200px;" > </th>
           </tr>
-
+        </table>
           <tr>
             <th style="color: white;">  <h2> 활동 보고서 : <input name = "report" value="{{report}}" readonly> </h2> </th>
           </tr>
 
-        </table>
+        
         
         <button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/report/update/'+`{{uuid}}` "type="button">
           보고서 수정
@@ -154,5 +108,79 @@ font-size: 3rem  ;
     </button>
     
 
-    </form>
+      </form>
+    </div>
+  </section>
       
+
+    
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Regna</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
+        -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+      <div class="info">
+
+
+        <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
+          
+
+          <p class="mb-2">상호명 : SoHee's Family (주) </p>
+
+          <p>대표이사 : 손소휘</p>
+          <p>대표전화 : 010 - XXXX - XXXX</p>
+          <p>사업자 등록번호 : xxx-xx-xxxxx</p>
+
+      </div>
+
+      </div>
+      <div class="social-links" style="text-align: right;">
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

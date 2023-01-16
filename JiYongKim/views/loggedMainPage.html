@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Regna Bootstrap Template</title>
+  <title>US</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
+  <link href="img/logo3.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -36,6 +36,66 @@ font-size: 3rem  ;
     color: white;
     
   }
+  @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+
+button {
+    margin: 20px;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-green {
+    background-color: #77af9c;
+    color: #d7fff1;
+}
+
+.w-btn-green2 {
+    background-color: #519d9e;
+    color: #9dc8c8;
+}
+
+.w-btn-green-outline {
+    border: 3px solid #77af9c;
+    color: darkgray;
+}
+
+.w-btn-green2-outline {
+    border: 3px solid #519d9e;
+    color: darkgray;
+}
+
+.w-btn-green-outline:hover {
+    background-color: #77af9c;
+    color: #d7fff1;
+}
+
+.w-btn-green2-outline:hover {
+    background-color: #519d9e;
+    color: #9dc8c8;
+}
 
 </style>
 </head>
@@ -44,36 +104,21 @@ font-size: 3rem  ;
   <!--==========================
   Header
   ============================-->
+ 
   <header id="header">
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img src="" alt="" title="" /></img></a>
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <h1 style="font-family: OKDDUNG; color: rgb(215, 224, 93);">US</h1>
+        <a href="/"><img src="../../img\logo1.png" style="width:10%; height:10%;"></a>
       </div>
 
-      
-      <nav id="nav-menu-container">
+      <nav id="nav-menu-container" style=" position:relative; top:15px">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#hero">홈으로</a></li>
-          <li><a href="#about">회사 소개</a></li>
-          <li><a href="#services">후원</a></li>
-          <li><a href="#portfolio">활동게시판</a></li>
-          <li><h1 style="color: white;">{{name}}</h1></li>
           
-          <li><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/mypage' "type="button">
-            마이페이지
-        </button></li>
-          <li><button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/logout' "type="button">
-            로그아웃
-        </button></li>
-      
-        </ul>     
+          <li style="color: white;"><h2 style=" position:relative; bottom:5px ;">{{name}} 님</h2></li>
+          <li class="menu-active"><a href="/mypage">마이페이지</a></li>
+          <li class="menu-active"><a href="/logout">로그아웃</a></li></ul>
       </nav><!-- #nav-menu-container -->
-     
-      
-      
     </div>
   </header><!-- #header -->
 
@@ -82,9 +127,23 @@ font-size: 3rem  ;
   ============================-->
   <section id="hero">
     <div class="hero-container">
-      <h1>소휘와 애완용</h1>
-      <h2>도와주세요</h2>
-      <a href="#about" class="btn-get-started">도와주기</a>
+      <h1>{{name}} 님</h1>
+      <h2> 환영합니다 </h2>
+      
+      <br>
+
+      <div>
+        {% if older_name != null %}
+        <h2>현재 매칭 현황 : {{older_name}} </h2>
+        {% else%}
+        <h2> 현재 매칭 현황 :
+          <button class="w-btn w-btn-gra1 w-btn-gra-anim"  onclick = "location.href = '/apply' "type="button">
+           매칭 신청하기
+         </button>
+        </h2>
+        {% endif%}
+      </div>
+      
     </div>
 
     
@@ -95,24 +154,63 @@ font-size: 3rem  ;
     <!--==========================
       About Us Section
     ============================-->
-    <section id="about">
-      <div class="container">
-        <div class="row about-container">
+    <br>
+          
+    <br>
+  
+    <br>
+          
+    <br>
+    
+    <br>
+          
+    <br>      
+    <br>      
 
-          <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">소휘와 애완용</h2>
-            <p>
-              한국성서대학교 창업 경진대회 팀
-            </p>
+          
+    <section id="about">
+            
+    <br> <br> <br> <br> <br> <br> <br> <br> <br>
+          
+   
+      <div class="container">
+        
+        <div class="row about-container" style="position: relative; bottom:80px;">
+          
+          
+            
+              <img src="img/logo.png" alt="" style="float: left; height :80%; width: 50%;">
+            
+            <div style="float: left; height :100%; width: 8%;">
+
+            </div>
+            <div style="float: left; height :100%; width: 42%; position: relative; top:280px">
+              <h2 class="title">US</h2>
+              <p>
+                <b>소히 주식회사</b>는 사회적 취약계층을 위해<br> 독거 노인과 소년 소녀 가장과의 <b>새로운 사회적 가족</b>을 형성하고,<br>
+                소년 소녀 가장의 <b>건강한 성장 환경 조성</b>과<br> 독거노인의 <b>사회적 돌봄 대책 마련</b>에 노력하고 있습니다.
+              </p>
+            </div>
+            
+            <br>
+          
+            <br>
+            
+            
+           
 
             
       </div>
     </section><!-- #about -->
 
+    <br>
+          
+    <br>
+
     <!--==========================
       Facts Section
     ============================-->
-    <section id="facts">
+    <!-- <section id="facts">
       <div class="container wow fadeIn">
         <div class="section-header">
           <h3 class="section-title">후원 금액</h3>
@@ -143,37 +241,73 @@ font-size: 3rem  ;
   			</div>
 
       </div>
-    </section><!-- #facts -->
+    </section> -->
 
     <!--==========================
       Services Section
     ============================-->
     <section id="services">
+      
+      <section id="facts">
+        <div class="container wow fadeIn">
+          <div class="section-header">
+            <h3 class="section-title">후원 금액</h3>
+            <p class="section-description">현재까지의 후원 총액입니다.</p>
+          </div>
+          <div class="row counters">
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">78,000,000</span>
+              <p>개인</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">260,000,000</span>
+              <p>단체</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">340,000,000</span>
+              <p>기업</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">0</span>
+              <p>정부</p>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section>
+
+      <br>
+
       <div class="container wow fadeIn">
         <div class="section-header">
           <h3 class="section-title">donation</h3>
-          <p class="section-description">이준범의 가족이 되어주세요.</p>
+          <p class="section-description"><b>US</b>의 가족이 되어주세요.</p>
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
-              <h4 class="title"><a href="">물건 구매로 가족되기</a></h4>
-              <p class="description">(쇼핑몰 링크)</p>
+              <div class="icon"><a href="{{us_mall}}"><i class="fa fa-desktop"></i></a></div>
+              <h4 class="title"><a href="{{us_mall}}">상품 구매 후원으로 가족되기</a></h4>
+              <p class="description">U.S_mall로 이동합니다.</p>
             </div>
           </div>
           
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
-              <h4 class="title"><a href="">직접 후원으로 가족되기</a></h4>
+              <div class="icon"><i class="fa fa-paper-plane"></i></div>
+              <h4 class="title">직접 후원으로 가족되기</h4>
               <p class="description">KB 국민은행 825302-04-220151</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             <div class="box">
-              <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
-              <h4 class="title"><a href="">현금도 받습니다</a></h4>
+              <div class="icon"><i class="fa fa-paper-plane"></i></div>
+              <h4 class="title">찾아 오시는 길</h4>
               <p class="description">한국성서대학교 갈멜관 1실습실</p>
             </div>
           </div>
@@ -196,7 +330,7 @@ font-size: 3rem  ;
             <p class="cta-text"> 문의사항은 아래 전화번호로 문의하세요. </p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">010-8442-9209</a>
+            <a class="cta-btn align-middle" href="#">010-xxxx-xxxx</a>
           </div>
         </div>
 
@@ -206,21 +340,22 @@ font-size: 3rem  ;
     <!--==========================
       Portfolio Section
     ============================-->
+    <br> <br> <br> <br> <br> <br>
     <section id="portfolio">
       <div class="container wow fadeInUp">
         <div class="section-header">
           <h3 class="section-title">Report</h3>
-          <p class="section-description">아이들의 활동 사진</p>
+          <p class="section-description">활동 사진</p>
         </div>
         <div class="row">
 
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
+              <!-- <li data-filter=".filter-app">App</li>
               <li data-filter=".filter-card">Card</li>
               <li data-filter=".filter-logo">Logo</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-web">Web</li> -->
             </ul>
           </div>
         </div>
@@ -228,130 +363,65 @@ font-size: 3rem  ;
         <div class="row" id="portfolio-wrapper">
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <a href="">
-              <img src="img/portfolio/app1.jpg" alt="">
+              <img src="img/test1.png" alt="">
               <div class="details">
-                <h4>App 1</h4>
-                <span>Alored dono par</span>
+                <h4>2022-07-02</h4>
+                <span>핸드폰 알리미 활동</span>
               </div>
             </a>
           </div>
 
           <div class="col-lg-3 col-md-6 portfolio-item filter-web">
             <a href="">
-              <img src="img/portfolio/web2.jpg" alt="">
+              <img src="img/test2.png" alt="">
               <div class="details">
-                <h4>Web 2</h4>
-                <span>Alored dono par</span>
+                <h4>2022-07-12</h4>
+                <span>일손 돕기 활동</span>
               </div>
             </a>
           </div>
 
           <div class="col-lg-3 col-md-6 portfolio-item filter-app">
             <a href="">
-              <img src="img/portfolio/app3.jpg" alt="">
+              <img src="img/test3.png" alt="">
               <div class="details">
-                <h4>App 3</h4>
-                <span>Alored dono par</span>
+                <h4>2022-08-19</h4>
+                <span>헌혈 봉사자 활동</span>
               </div>
             </a>
           </div>
 
           <div class="col-lg-3 col-md-6 portfolio-item filter-card">
             <a href="">
-              <img src="img/portfolio/card1.jpg" alt="">
+              <img src="img/test4.png" alt="">
               <div class="details">
-                <h4>Card 1</h4>
-                <span>Alored dono par</span>
+                <h4>2022-11-17</h4>
+                <span>소년소녀 가장 장학금 수여</span>
               </div>
             </a>
           </div>
 
           <div class="col-lg-3 col-md-6 portfolio-item filter-card">
             <a href="">
-              <img src="img/portfolio/card2.jpg" alt="">
+              <img src="img/test5.png" alt="">
               <div class="details">
-                <h4>Card 2</h4>
-                <span>Alored dono par</span>
+                <h4>2022-12-15</h4>
+                <span>가족 모임 활동</span>
               </div>
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web3.jpg" alt="">
-              <div class="details">
-                <h4>Web 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <a href="">
-              <img src="img/portfolio/card3.jpg" alt="">
-              <div class="details">
-                <h4>Card 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <a href="">
-              <img src="img/portfolio/app2.jpg" alt="">
-              <div class="details">
-                <h4>App 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo1.jpg" alt="">
-              <div class="details">
-                <h4>Logo 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo3.jpg" alt="">
-              <div class="details">
-                <h4>Logo 3</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <a href="">
-              <img src="img/portfolio/web1.jpg" alt="">
-              <div class="details">
-                <h4>Web 1</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-            <a href="">
-              <img src="img/portfolio/logo2.jpg" alt="">
-              <div class="details">
-                <h4>Logo 2</h4>
-                <span>Alored dono par</span>
-              </div>
-            </a>
-          </div>
 
         </div>
 
       </div>
     </section><!-- #portfolio -->
 
-  
+    <br>
+          
+    <br> <br>
+          
+    <br>
    
     <!--==========================
       Contact Section
@@ -364,27 +434,17 @@ font-size: 3rem  ;
         </div>
       </div>
 
-      <!-- Uncomment below if you wan to use dynamic maps -->
+      <!-- Uncomment below if you wan to use dynamic maps
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
 
       <div class="container wow fadeInUp mt-5">
         <div class="row justify-content-center">
 
-          <div class="col-lg-3 col-md-4">
+          <div class="col-lg-3 col-md-4"> -->
 
     
 
           
-          </div>
-
-         
-              </form>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
     </section><!-- #contact -->
 
   </main>
@@ -413,7 +473,8 @@ font-size: 3rem  ;
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
       <div class="info">
-       
+
+
         <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
           
 
@@ -455,6 +516,7 @@ font-size: 3rem  ;
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+
 
 </body>
 </html>

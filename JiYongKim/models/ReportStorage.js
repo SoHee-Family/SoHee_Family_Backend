@@ -24,31 +24,6 @@ class ReportStorage{
         })
         .catch(console.error);
     }
-
-
-    // //유저 ID로 모든 report 반환
-    // static #getReportById(data, id){
-    //     const reports = JSON.parse(data);
-    //     const idx = forms.id.indexOf(id);
-    //     const formsKeys = Object.keys(forms);
-
-    //     const reportInfo = formsKeys.reduce((newReport, info)=>{
-    //         newReport[info] = reports[info][idx];
-    //         return newReport;
-    //     },{});
-    //     return reportInfo;
-    // }
-
-    // static getReportById(id){
-    //     return fs.readFile('/databases/report.json','utf-8')
-    //     .then((data)=>{
-    //         return this.#getReportById(data, id);
-    //     })
-    //     .catch(console.error);
-    // }
-
-    
-    //유저 ID로 모든 report 반환
     static #getReportById(data, id){
         const reports = JSON.parse(data);
         const formsKeys = Object.keys(reports);
@@ -59,20 +34,12 @@ class ReportStorage{
                 let idx = i;
                 const reportInfo = formsKeys.reduce((newReport, info)=>{
                     newReport[info] = reports[info][idx];
-                    return newReport;
+                    return newReport 
                 },{});
                 result.push(reportInfo);
             }
           }
-
           return result;
-
-        // const idx = reports.id.indexOf(id);
-        // const reportInfo = formsKeys.reduce((newReport, info)=>{
-        //     newReport[info] = reports[info][idx];
-        //     return newReport;
-        // },{});
-        // return reportInfo;
     }
 
     static getReportById(id){
@@ -95,6 +62,13 @@ class ReportStorage{
                 }
                 idx++;
             })
+            return result;
+        })
+        return reports;
+    }
+    
+    static getMemberReportByDate(id){
+        const reports = this.getReportById(id).then(result =>{
             return result;
         })
         return reports;

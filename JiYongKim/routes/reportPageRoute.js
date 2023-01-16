@@ -10,7 +10,7 @@ const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 const Report = require('../models/Report');
 const ReportStorage = require('../models/ReportStorage');
-
+const matchingStorage = require('../models/matchingStorage');
 
 try {
 	fs.readdirSync('uploads'); // 폴더 확인
@@ -39,10 +39,18 @@ router.route('/')
     try{
         if(req.session.user!=undefined){
             // console.log(req.session.user.belong);
-            res.render('reportApplyPage',{
-                name : req.session.user.name,
-                belong : req.session.user.belong
+            matchingStorage.getuserInfo2(req.session.user.id).then(result =>{
+                if(result.older==undefined || result.older==''){
+                    res.send("<script>alert('노인이 매칭 되지 않아 보고서 작성이 불가 합니다.');location.href='/mypage';</script>");
+                }else{
+                    res.render('reportApplyPage',{
+                        older_name : result.older,
+                        name : req.session.user.name,
+                        belong : req.session.user.belong
+                    });
+                }
             });
+            
         }else{
             res.redirect('/');
         }
@@ -74,11 +82,6 @@ router.route('/')
     
     const report = new Report(reportForm);
     try{
-        
-        console.log("acivity_img :"+JSON.stringify(req.files.activity_img));
-        console.log("acivity_img[0] :"+JSON.stringify(req.files.activity_img[0]));
-        console.log("acivity_img[0].filename :"+JSON.stringify(req.files.activity_img[0].filename));
-
         report.submit(req.files.activity_img[0].filename,req.files.design_img[0].filename).then(result =>{
             if(result.success){
                 res.redirect('/mypage');
@@ -100,8 +103,9 @@ router.route('/:uuid')
     const uuid = req.params.uuid;
     try{
         ReportStorage.getReportByUUID(uuid).then(report=>{
+            // 이게 admin reportGetPage로 되어 있었음
         res.render('reportGetPage',{
-            name : req.session.user.name,
+            name : report.name,
             date : report.date,
             older_name : report.older_name,
             belong : report.belong,

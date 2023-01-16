@@ -16,5 +16,29 @@ class Report{
             return result;
         }
     }
+    //보고서 전부 읽어오기
+    async allread(){
+        const report = this.body;
+        try{
+            const response = await ReportStorage.getReports(true);
+            return response;
+
+        }catch(err){
+            const result = {success: false, msg : err}
+            return result;
+        }
+    }
+    async userreportread(){
+        const report = this.body;
+        try{
+            const response = await ReportStorage.getReports(true);
+            return response;
+
+        }catch(err){
+            const result = {success: false, msg : err}
+            return result;
+        }
+    }
+    
 }
 module.exports = Report;
