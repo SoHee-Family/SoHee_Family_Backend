@@ -7,11 +7,14 @@ const bodyParser = require('body-parser');
 const app = express();
 const User = require('../models/User');
 const ReportStorage = require('../models/ReportStorage');
+const matchingStorage = require('../models/matchingStorage');
 
 router.route('/')
 .get(async (req,res,next)=>{
     try{
         if(req.session.user!=undefined){
+            
+            
             const user = new User(req.session.user);
             var date = new Date();
             var year = date.getFullYear();
@@ -23,34 +26,38 @@ router.route('/')
                 if(data){
                     ReportStorage.getReportByDate(req.session.user.id, newDate).then(reports=>{
                         if(data.status == true){
-                            res.render('mypage',{
-                                name : req.session.user.name,
-                                older_name : "독거노인이 매칭된 상황인데 독거노인 매칭이 현재 미완료 되어있음", 
-                                reports : reports,
-                                month : month
-                            });
+                            matchingStorage.getuserInfo2(req.session.user.id).then(result =>{
+                                // console.log(JSON.stringify(result));
+                                res.render('mypage',{
+                                    name : req.session.user.name,
+                                    older_name : result.older,
+                                    reports : reports,
+                                    month : month
+                                });
+                            })
+                            
                         }else if(data.status == false){
                             res.render('mypage',{
                                 name : req.session.user.name,
-                                older_name : "승인 완료",
+                                older_name : "매칭 진행중",
                                 reports : reports,
                                 month : month
                             });
                         }else if(data.status == null){
-                            res.render('mypage',{
-                                name : req.session.user.name,
-                                older_name : "현재 신청서 심사중",
-                                reports : reports,
-                                month : month
-                            });
-                        
-                        }else{
-                            res.render('mypage',{
-                                name : req.session.user.name,
-                                older_name : null,
-                                reports : reports,
-                                month : month
-                            });
+                            if(data.id == null){
+                                res.render('mypage',{
+                                    name : req.session.user.name,
+                                    reports : reports,
+                                    month : month
+                                });
+                            }else{
+                                res.render('mypage',{
+                                    name : req.session.user.name,
+                                    older_name : "현재 신청서 심사중",
+                                    reports : reports,
+                                    month : month
+                                });
+                            }
                         }
                     })
                 }
@@ -73,26 +80,38 @@ router.route('/')
                 if(data){
                     ReportStorage.getReportByDate(req.session.user.id, '2022/'+req.body.month+'/1').then(reports=>{
                         if(data.status == true){
-                            res.render('mypage',{
-                                name : req.session.user.name,
-                                older_name : "독거노인이 매칭된 상황인데 독거노인 매칭이 현재 미완료 되어있음",
-                                reports : reports,
-                                month : req.body.month
-                            });
+                            matchingStorage.getuserInfo2(req.session.user.id).then(result =>{
+                                // console.log(JSON.stringify(result));
+                                res.render('mypage',{
+                                    name : req.session.user.name,
+                                    older_name : result.older,
+                                    reports : reports,
+                                    month : req.body.month
+                                });
+                            })
+                            
                         }else if(data.status == false){
                             res.render('mypage',{
                                 name : req.session.user.name,
-                                older_name : "현재 신청서 심사중",
+                                older_name : "매칭 진행중",
                                 reports : reports,
                                 month : req.body.month
                             });
-                        }else{
-                            res.render('mypage',{
-                                name : req.session.user.name,
-                                older_name : null,
-                                reports : reports,
-                                month : req.body.month
-                            });
+                        }else if(data.status == null){
+                            if(data.id == null){
+                                res.render('mypage',{
+                                    name : req.session.user.name,
+                                    reports : reports,
+                                    month : req.body.month
+                                });
+                            }else{
+                                res.render('mypage',{
+                                    name : req.session.user.name,
+                                    older_name : "현재 신청서 심사중",
+                                    reports : reports,
+                                    month : req.body.month
+                                });
+                            }
                         }
                     })
                 }

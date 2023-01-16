@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const User = require('../models/User');
+const { resourceLimits } = require('worker_threads');
 const app = express();
 
 router.route('/')
@@ -22,20 +23,27 @@ router.route('/')
 .post(async (req, res, next)=>{
     try{
         const user = new User(req.body);
-        
-        // console.log("님이 작성한 id : "+req.body.id);
-        // console.log("님이 작성한 pw : "+req.body.pw);
-
 
         user.login().then(result=>{
-       
+            // console.log("결과")
+            // console.log(JSON.stringify(result))
             if(result.success){
-               
                 const user = {id : result.id, name : result.name, tel : result.tel, region : result.region, belong : result.belong };
                 req.session.user = user;
-               
+                // console.log("이름 :"+JSON.stringify(result.name));
+                // req.session.id = result.id;
+                // req.session.name = result.name;
+                if(result.id==="admin"){
+                    // const admin = {id: result.id, name: result.name};
+                    // req.session.admin = admin;s
+                    res.redirect('/admin');}
+                else{res.redirect('/');}
+                
+                // res.render('loggedMainPage', {
+                //     name : result.name
+                // });
 
-                res.redirect('/');
+                
             }else{
                 
                 // res.render('login',{

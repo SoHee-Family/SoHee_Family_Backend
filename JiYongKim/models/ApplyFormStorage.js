@@ -25,10 +25,9 @@ class ApplyFormStorage{
         .catch(console.error);
     }
 
-    // 유저  신청서 저장
+    // 유저 신청서 저장
     static async save(applyForm){
         const applyForms = await this.getApplyForms(true);
-    
         if(applyForms.id.includes(applyForm.id)){
             return{success : false, msg : "이미 신청서를 작성한 id 입니다."}
         }
@@ -41,7 +40,6 @@ class ApplyFormStorage{
         applyForms.status.push(null);
         fs.writeFile("./databases/applyForm.json",JSON.stringify(applyForms));
         return{success:true};
-
     }
 
     // 유저 id로 작성된 신청서 반환
@@ -69,14 +67,15 @@ class ApplyFormStorage{
     //유저 id로 신청서 삭제
     static async delete(id){
         const applyForms = await this.getApplyForms(true);
-    
+console.log("아이디"+id)
         if(applyForms.id.includes(id)){
             const idx = applyForms.id.indexOf(id);
-            applyForms.id.splice(idx);
-            applyForms.name.splice(idx);
-            applyForms.tel.splice(idx);
-            applyForms.address.splice(idx);
-            applyForms.motive.splice(idx);
+            applyForms.id.splice(idx,1);
+            applyForms.name.splice(idx,1);
+            applyForms.tel.splice(idx,1);
+            applyForms.address.splice(idx,1);
+            applyForms.motive.splice(idx,1);
+            applyForms.status.splice(idx,1);
             fs.writeFile("./databases/applyForm.json",JSON.stringify(applyForms));
             return{success:true};
         
@@ -85,6 +84,21 @@ class ApplyFormStorage{
 
     }
 
-
+    static async matching(id){
+        const applyForms = await this.getApplyForms(true);
+        const idx = applyForms.id.indexOf(id)
+        applyForms.status[idx]=true;
+        fs.writeFile("./databases/applyForm.json",JSON.stringify(applyForms));
+        return{success:true};
+    }
+    static async matchingcf(id){
+        const applyForms = await this.getApplyForms(true);
+        console.log(applyForms)
+        const idx = applyForms.id.indexOf(id);
+        console.log("idx : fsa"+idx)
+        applyForms.status[idx]=false;
+        fs.writeFile("./databases/applyForm.json",JSON.stringify(applyForms));
+        return{success:true};
+    }
 }
 module.exports = ApplyFormStorage;
